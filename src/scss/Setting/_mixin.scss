@@ -1,0 +1,20 @@
+@use "./variable"as *;
+
+@mixin media($breakpoint) {
+	@media #{map-get($breakpoints,$breakpoint)} {
+		@content;
+		//外側を呼び出すためのcontent
+	}
+}
+
+@mixin inner {
+	max-width: $pcContainer + px;
+	width: calc(100% - 10.6vw);
+	margin: auto;
+}
+
+@mixin flexCenter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

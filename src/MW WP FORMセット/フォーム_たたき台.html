@@ -1,0 +1,78 @@
+<p class="error-message">
+  エラーの項目がございます。
+  <br class="u-only-sp" />
+  お手数ですが、再度ご入力お願いいたします。
+</p>
+<p class="confirm-message">
+  ご確認の上、よろしければ
+  <br class="u-only-sp" />
+  「送信する」ボタンを押してください。
+</p>
+<dl>
+  <dt>お問い合わせ種類[mwform_error keys="お問い合わせ種類"]</dt>
+  <dd class="p-form__contents">
+    <span class="p-form__radio">[mwform_radio name="お問い合わせ種類" id="contents" children="お仕事のご相談,お見積もりのご依頼,採用について,遊びのお誘い,その他" vertically="true" show_error="false"]</span>
+  </dd>
+</dl>
+<dl>
+  <dt>お名前[mwform_error keys="姓,名"]</dt>
+  <dd class="p-form__2column">
+    <p class="column">
+      <label for="family_name">姓</label>[mwform_text name="姓" id="family_name" show_error="false"]
+    </p>
+    <p class="column">
+      <label for="family_name">名</label>[mwform_text name="名" id="first_name" show_error="false"]
+    </p>
+  </dd>
+</dl>
+<dl>
+  <dt class="p-form__kana-title">フリガナ[mwform_error keys="セイ,メイ"]</dt>
+  <dd class="p-form__2column">
+    <p class="column">
+      <label for="family_name">セイ</label>[mwform_text name="セイ" id="family_name_kana" show_error="false"]
+    </p>
+    <p class="column">
+      <label for="family_name">メイ</label>[mwform_text name="メイ" id="first_name_kana" show_error="false"]
+    </p>
+  </dd>
+</dl>
+
+<dl>
+  <dt class="p-form__mail-title">
+    メールアドレス[mwform_error keys="メールアドレス"]
+  </dt>
+  <dd class="p-form__mail">
+    [mwform_text name="メールアドレス" id="mail" conv_half_alphanumeric="true" show_error="false"]
+  </dd>
+</dl>
+<dl class="p-form__textarea">
+  <dt>お問い合わせ内容[mwform_error keys="お問い合わせ内容"]</dt>
+  <dd>
+    [mwform_textarea class="p-form__long" name="お問い合わせ内容" id="opinions" cols="60" rows="8" placeholder="メッセージを入力してください"
+    show_error="false"]
+  </dd>
+</dl>
+
+<div class="p-form-buttonwrap">
+  [mwform_bconfirm class="submitButton" value="confirm"]
+  <span class="p-form-submit">
+    <span class="p-form-submit__wrap">
+      <span class="p-form-submit__text" data-text="確認画面へ">確認画面へ</span>
+    </span>
+  </span>
+  [/mwform_bconfirm]
+  <div class="p-form-submit p-form-submit--confirm">
+    <div class="p-form-submit__wrap">
+      <div class="p-form-submit__text" data-text="戻る">
+        [mwform_backButton value="戻る"]
+      </div>
+    </div>
+  </div>
+  [mwform_bsubmit name="sendButton" value="send"]
+  <span class="p-form-submit">
+    <span class="p-form-submit__wrap">
+      <span class="p-form-submit__text" data-text="送信する">送信する</span>
+    </span>
+  </span>
+  [/mwform_bsubmit]
+</div>

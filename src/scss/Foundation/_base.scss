@@ -1,0 +1,47 @@
+:root {
+	--color-base: #707070;
+	--font-mincho: 'Shippori Mincho B1', 'Yu Mincho', '游明朝体', serif;
+	--font-serif: 'Cormorant Infant', serif;
+	--font-gothic: 'Roboto', "游ゴシック体",
+		YuGothic,
+		"游ゴシック Medium",
+		"Yu Gothic Medium",
+		"游ゴシック",
+		"Yu Gothic",
+		sans-serif;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	word-break: normal;
+	font-size: 62.5%; //10px
+}
+
+body {
+	background-color: #EDEDED;
+	color: var(--color-base);
+	font-family: var(--font-gothic);
+	font-size: 1rem;
+	font-weight: 300;
+	line-height: 1.73;
+	text-align: center;
+	-webkit-text-size-adjust: 100%;
+	font-feature-settings: "palt"; //自動カーニング
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: var(--color-base);
+	transition: all 0.25s ease-in-out;
+}
+
+a:hover {
+	opacity: 0.7;
+	-moz-opacity: 0.7;
+	-khtml-opacity: 0.7;
+}

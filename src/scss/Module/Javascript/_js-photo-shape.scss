@@ -1,0 +1,26 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+/*
+ * # 	SVG ANIMATION（写真の枠）
+ */
+.js-photo-shape {
+  &__path {
+    fill: none;
+    stroke: #fff; //本来のSVG画像の上に乗っかるマスクになる
+    stroke-width: 3px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    // $stroke: s.vw(1920, 1045 + 685);
+    // stroke-dasharray: $stroke;
+    // stroke-dashoffset: 0;
+    // transition: stroke-dashoffset 2.6s 2s;
+    // will-change: stroke-dashoffset;
+    // &--right {
+    //   &.is-show {
+    //     stroke-dashoffset: $stroke;
+    //   }
+    // }
+  }
+}

@@ -1,0 +1,30 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.c-figure-hover {
+  display: block;
+  position: relative;
+
+  &::after {
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    content: "";
+    -webkit-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+  }
+
+  &:hover {
+    @include s.media(md) {
+      /*PCのみ*/
+      opacity: 1;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}

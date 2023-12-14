@@ -1,0 +1,9 @@
+/*お問い合わせページ*/
+@use "./p-contact";
+@use "./p-form--snow-monkey";
+
+/*確認画面*/
+@use "./snow-monkey-form--confirm";
+
+/*送信完了ページ*/
+@use "./p-thanks";

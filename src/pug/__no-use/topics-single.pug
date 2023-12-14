@@ -1,0 +1,42 @@
+//- ページのID名
+- const pageID = "topics"
+
+include _header.pug
+
+article.p-topics.l-page-wrap.l-inner
+	.c-sec-title.p-home-philosophy__title.js-fadein
+		p.c-sec-title__title.u-upper news
+
+	.p-topics-single
+		.p-topics-single__headarea
+			time.p-topics-single__time 2023.01.05
+			.p-topics-single__categorybox
+				p.p-topics-single__category
+					a.u-upper(href=" ") #Information
+				p.p-topics-single__category
+					a.u-upper(href=" ") #NEWS
+			h1.p-topics-single__title この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+		.p-topics-single__contents
+			figure
+				img(src="https://fakeimg.pl/312x200" alt="	" width="312" height="200")
+			p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+	.p-topics-pager
+		.p-topics-pager__btn.p-topics-pager__btn--back
+			a(href=" ")
+				span.p-topics-pager__link-wrap
+					span.p-topics-pager__link-inner
+						span.p-topics-pager__link-text Back
+
+		<p class="p-topics-pager__back">
+			<a class="u-upper" href="https://office-▲▲▲▲.jp/_▲▲▲▲/works">
+			<span class="wrap"><span class="inner"><span class="text">NEWS top</span></span></span>
+			</a>
+		</p>
+
+		.p-topics-pager__btn.p-topics-pager__btn--next
+			a(href=" ")
+				span.p-topics-pager__link-wrap
+					span.p-topics-pager__link-inner
+						span.p-topics-pager__link-text Next
+
+include _footer.pug

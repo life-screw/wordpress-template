@@ -1,0 +1,13 @@
+@use "sass:math";
+@use "../../Setting/"as s;
+
+.l-fix-instagram {
+  padding: 25px;
+  display: block;
+  z-index: 900;
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  transition: all 0.05s;
+}

@@ -1,0 +1,21 @@
+//- ページのID名
+- const pageID = "contact"
+
+include _header.pug
+
+article.l-page-wrap.l-inner
+	.c-sec-title.js-fadein
+		h1.c-sec-title__title.u-upper.js-fadein__inner contact
+
+	.l-page-inner.p-contact
+		<!-- ▼▼▼ 管理画面にはここから入れる ▼▼▼ -->
+
+		p.p-contact__text お見積りや案件のご相談お待ちしております。<br>担当より迅速にご連絡差し上げますので<br class="u-only-sp">まずはお気軽にお問い合わせ下さい。<br>​※各種営業のご連絡には返答しかねることも<br class="u-only-sp">ありますので予めご了承ください。
+
+		p.p-contact__note ※入力フォームはすべて必須です。
+
+		.p-form
+			include _mwwpform.html
+
+		<!-- ▲▲▲ 管理画面にはここまで入れる ▲▲▲ -->
+include _footer.pug

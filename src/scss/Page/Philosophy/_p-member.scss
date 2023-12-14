@@ -1,0 +1,201 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.p-member {
+  $this: &;
+  margin: 5.5em auto 6.5em;
+  padding-top: 1px;
+  max-width: 620px;
+  @include s.media(md) {
+    /*PCのみ*/
+    margin: 5.5em auto 12.5em;
+  }
+
+  &-mainbox {
+    @include s.media(md) {
+      /*PCのみ*/
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  figure {
+    margin: auto;
+    width: 88%;
+    max-width: 418px;
+    @include s.media(md) {
+      /*PCのみ*/
+
+      width: 57%;
+      max-width: 345px;
+    }
+    img {
+      display: inline-block;
+      // @include s.media(md) {
+      //   /*PCのみ*/
+      //   width: auto;
+      //   height: 100%;
+      // }
+    }
+  }
+  &-main {
+    text-align: left;
+    @include s.media(md) {
+      /*PCのみ*/
+      // margin-top: 13rem;
+      // margin-bottom: 18rem;
+      max-width: 408px;
+      display: inline-block;
+    }
+    &__title {
+      margin: 2.5rem 0 1.8rem;
+      line-height: 1.4;
+      color: #000;
+      .en {
+        display: block;
+        @extend %en-font;
+        font-size: 2.5rem;
+        font-weight: 300;
+        @include s.media(md) {
+          /*PCのみ*/
+          font-weight: 500;
+        }
+      }
+      .jp {
+        display: block;
+        font-size: 1.4rem;
+      }
+    }
+    &__position {
+      font-size: 1.4rem;
+      font-weight: 300;
+      line-height: 1.35;
+      letter-spacing: 0.05em;
+      color: #000;
+      @include s.media(md) {
+        /*PCのみ*/
+        line-height: 1.8;
+      }
+      span {
+        display: inline-block;
+        position: relative;
+        &::after {
+          content: "/";
+          margin: 0 0.2em;
+          display: inline-block;
+        }
+        &:last-child {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+    &__position-other {
+      margin-top: 2.5em;
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 1.67;
+      @include s.media(md) {
+        /*PCのみ*/
+        line-height: 1.85;
+      }
+      ul + dl {
+        margin-top: 1em;
+      }
+      li {
+        position: relative;
+        padding-left: 1em;
+        &::before {
+          content: "・";
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+      }
+      dl {
+        @include s.media(md) {
+          /*PCのみ*/
+          display: flex;
+        }
+      }
+      dt {
+        @include s.media(md) {
+          /*PCのみ*/
+          margin-right: 0.5em;
+        }
+      }
+    }
+  }
+
+  &-sub {
+    text-align: left;
+    &__tagline {
+      margin-top: 3rem;
+      font-size: 1.6rem;
+      font-weight: bold;
+      line-height: 1.88;
+      @include s.media(md) {
+        /*PCのみ*/
+        margin-top: 4rem;
+        font-size: 1.8rem;
+        line-height: 1.89;
+      }
+    }
+    &__feature {
+      margin-top: 2.2rem;
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 2;
+      p + p {
+        margin-top: 1em;
+      }
+    }
+  }
+
+  /*奇数・偶数セクションで変わる部分*/
+  &:nth-of-type(even) {
+    @include s.media(md) {
+      /*PCのみ*/
+      figure {
+        margin-left: 0;
+      }
+    }
+  }
+  &:nth-of-type(odd) {
+    #{$this}-mainbox {
+      flex-direction: row-reverse;
+    }
+  }
+  /*戸田さんで変わるもの*/
+  &--toda {
+    @include s.media(md) {
+      /*PCのみ*/
+      figure {
+        width: 50%;
+      }
+    }
+  }
+  /*壽山さんで変わるもの*/
+  &--suyama {
+    #{$this}-mainbox {
+      @include s.media(md) {
+        /*PCのみ*/
+        margin-bottom: 7rem;
+        width: 124%;
+        margin-left: -21%;
+      }
+    }
+  }
+  /*七尾さんで変わるもの*/
+  &--nanao {
+    @include s.media(md) {
+      /*PCのみ*/
+      figure {
+        width: 47%;
+      }
+    }
+  }
+}

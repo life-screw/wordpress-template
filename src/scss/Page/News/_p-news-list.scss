@@ -1,0 +1,45 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.p-news-list {
+  border-bottom: 0.7px solid var(--color-base);
+  padding: 3em 0;
+  text-align: justify;
+  @include s.media(md) {
+    /*PCのみ*/
+    padding: 0;
+  }
+  a {
+    @include s.media(md) {
+      /*PCのみ*/
+      display: flex;
+      align-items: center;
+      padding: 2em 0;
+    }
+  }
+
+  &__time {
+    display: inline-block;
+    font-family: Roboto, sans-serif;
+    font-size: 1.3rem;
+    color: #000;
+    @include s.media(md) {
+      /*PCのみ*/
+      width: s.p(885, 170);
+      font-size: 1.4rem;
+    }
+  }
+  &__title {
+    margin-top: 0.4em;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.5;
+    @include s.media(md) {
+      /*PCのみ*/
+      margin-top: 0;
+      width: s.p(885, 885-170);
+      font-size: 1.5rem;
+      line-height: 1.6;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+/*
+ * # 	見出しのアニメーション
+ */
+.js-headline-anim {
+  @include s.headlineAnim;
+  &.is-show {
+    @include s.headlineAnimActive;
+  }
+}

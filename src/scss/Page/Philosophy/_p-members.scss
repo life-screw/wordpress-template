@@ -1,0 +1,22 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+/*
+ * # 	社員紹介
+ */
+.p-members {
+  font-size: 1.2rem;
+  &__title {
+    @include s.media(mdmax) {
+      /*スマホのみ*/
+      font-size: 3rem;
+    }
+    @include s.media(md) {
+      /*PCのみ*/
+      text-align: left;
+    }
+  }
+  &__credit {
+    @extend %en-font;
+  }
+}

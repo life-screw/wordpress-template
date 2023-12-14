@@ -1,0 +1,65 @@
+@use "../../Setting/"as s;
+
+.c-button-w-arrow {
+
+  a,
+  span {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: solid 1px var(--color-blue);
+    background-color: #fff;
+    padding: 0.6em;
+    color: var(--color-blue);
+    font-size: s.vw(s.$spDesign, 13);
+    font-weight: 500;
+    transition: all 0.25s ease-in-out;
+
+    @include s.media(md) {
+      font-size: 1.5rem;
+      padding: 0.6em 1em;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 1em;
+      height: 1px;
+      background-color: var(--color-blue);
+      transition: right 0.3s ease-out;
+    }
+
+    &::before {
+      width: s.vw(s.$spDesign, 28.2);
+
+      @include s.media(md) {
+        width: 5.537rem;
+      }
+    }
+
+    &::after {
+      width: s.vw(s.$spDesign, 7);
+      transform: rotate(30deg);
+      transform-origin: right bottom;
+
+      @include s.media(md) {
+        width: 1.3rem;
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+      color: #fff;
+      background-color: var(--color-blue);
+
+      &::before,
+      &::after {
+        background-color: #fff;
+        right: 0.3em;
+      }
+    }
+  }
+}

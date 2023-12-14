@@ -1,0 +1,13 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+/*
+ * # 	フェードインアニメーション
+ */
+.js-fadein {
+	@include s.fadeinAnim;
+
+	&.is-show {
+		@include s.fadeinAnimActive;
+	}
+}

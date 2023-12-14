@@ -1,0 +1,8 @@
+@use "../../Setting/"as s;
+
+/*スマホのみ*/
+.u-only-sp {
+  @include s.media(md) {
+    display: none !important;
+  }
+}

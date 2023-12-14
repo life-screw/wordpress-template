@@ -1,0 +1,25 @@
+.js-fadein {
+  opacity: 0;
+
+  &.js-scrollin {
+    //JavaScriptで.js-scrollinを付与した時にフェードインする。
+    animation-duration: 600ms;
+    animation-fill-mode: both; //アニメーションが終わっても、元に戻らずそのままの状態にする。
+    animation-timing-function: ease-out;
+    animation-name: fadeInUp;
+    //スマホではアニメーションを無しにする
+    //@media screen and (max-width: $screen-sp-min) {
+    //	animation-name: none;
+    //}
+
+    /*スマホのみ*/
+    &.js-fadein--sp {
+
+      @media print,
+      screen and (min-width:751px) {
+        animation: none;
+      }
+    }
+  }
+
+}

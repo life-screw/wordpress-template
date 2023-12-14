@@ -1,0 +1,43 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.c-cat-pagelink {
+  margin: 6em auto 0;
+  text-align: left;
+
+  @include s.media(md) {
+    /*PCのみ*/
+    margin: 0 0 0.5em 13%;
+  }
+
+  li {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+
+    &::after {
+      margin: 0 2em;
+      content: "/";
+      display: inline-block;
+    }
+
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+
+    a {
+      font-family: "Montserrat", "游ゴシック体", YuGothic, "游ゴシック Medium",
+        "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+      display: block;
+      width: 100%;
+      padding: 0.3em 0;
+
+      &.is-show {
+        text-decoration: underline;
+      }
+    }
+  }
+}

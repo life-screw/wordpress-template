@@ -1,0 +1,52 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+/*
+ * # 	マウスカーソルのアニメーション
+ */
+.js-pointer {
+  $this: &;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  pointer-events: none;
+  mix-blend-mode: exclusion; //要素と背景との色をmixするので、マウスホバーする要素の背景色は必ず設定するようにする。
+  &__cursor {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+    transition-property: top, left, width, height;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffffff;
+    &.is-mouseover {
+      width: 40px;
+      height: 40px;
+      top: -20px;
+      left: -20px;
+      &--more {
+        width: 140px;
+        height: 140px;
+        top: math.div(-140px, 2);
+        left: math.div(-140px, 2);
+      }
+    }
+  }
+  &__text {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+    font-size: 14px;
+  }
+}
+
+//タッチデバイスの場合は非表示（JavaScriptでクラスを付与）
+html:not(.not-touch) .js-pointer {
+  display: none;
+}

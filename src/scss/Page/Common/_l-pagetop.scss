@@ -1,0 +1,83 @@
+@use "sass:math";
+@use "../../Setting/"as s;
+
+.l-pagetop {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: s.vw(s.$spDesign, 60);
+  height: s.vw(s.$spDesign, 60);
+
+  @include s.media(md) {
+    width: 4.7rem;
+    height: 13.5rem;
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-base);
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      //真ん中に寄せる
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      //height: 2px;
+      width: 2px;
+      background-color: #fff;
+
+      @include s.media(md) {
+        top: 2rem;
+        bottom: auto;
+      }
+    }
+
+    &::before {
+      height: 50%;
+
+      @include s.media(md) {
+        height: 2.947rem;
+      }
+    }
+
+    &::after {
+      height: 23%;
+      transform-origin: left top;
+
+      @include s.media(mdmax) {
+        /*スマホのみ*/
+        //中心点が真ん中になっているのでずらす。translateとrotateの順番で位置が変わってしまうので注意
+        transform: translateY(-50%) rotate(-40deg);
+      }
+
+      @include s.media(md) {
+        transform: rotate(-40deg);
+      }
+
+      @include s.media(md) {
+        height: 1.3rem;
+      }
+    }
+  }
+
+  &__txt {
+    margin-top: 8.1rem;
+    width: 6rem;
+    height: 1rem;
+    color: #fff;
+    display: inline-block;
+    line-height: 1;
+    transform: rotate(90deg);
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+}

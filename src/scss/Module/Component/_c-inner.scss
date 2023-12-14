@@ -1,0 +1,6 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.c-inner {
+	@include s.inner;
+}

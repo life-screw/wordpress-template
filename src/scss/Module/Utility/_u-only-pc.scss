@@ -1,0 +1,8 @@
+@use "../../Setting/"as s;
+
+/*PCのみ*/
+.u-only-pc {
+  @include s.media(mdmax) {
+    display: none !important;
+  }
+}

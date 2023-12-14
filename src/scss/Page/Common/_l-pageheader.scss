@@ -1,0 +1,51 @@
+@use "sass:math";
+@use "../../Setting/"as s;
+
+.l-pageheader {
+  padding: 16px 0 4px;
+  border-bottom: solid 1px var(--color-blue);
+
+  @include s.media(md) {
+    padding: 7.3rem 0 2.4rem;
+  }
+
+  &__anim {
+    position: absolute;
+    top: 2.5vw;
+    right: s.vw(1440, 118);
+    z-index: 3;
+
+    @include s.media(xl) {
+      top: 6.4rem;
+    }
+
+    &.js-loadanim {
+      transition: 2s;
+      animation-name: pageAnim;
+      animation-duration: 2s;
+      animation-fill-mode: ease-out;
+    }
+
+    /*宅配受け取り*/
+    &--receipt {
+      @include s.media(md) {
+        top: 7.25vw;
+      }
+
+      @include s.media(xl) {
+        top: 90px;
+      }
+    }
+
+    /*段ボール*/
+    &--baggage {
+      @include s.media(md) {
+        top: 6.6vw;
+      }
+
+      @include s.media(xl) {
+        top: 8rem;
+      }
+    }
+  }
+}

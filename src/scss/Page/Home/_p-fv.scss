@@ -1,0 +1,100 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.p-fv {
+	position: relative;
+	width: 100%;
+	height: 100svh; //スマホのアドレスバーより小さくする
+
+	//   @include s.media(md) {
+	//     /*PCのみ*/
+	//     height: 53vw;
+	//   }
+
+	&__title {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		width: s.vw(s.$spDesign, 249);
+
+		@include s.media(md) {
+			/*PCのみ*/
+			width: s.vw(1366, 455);
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&-topic {
+		border-bottom: solid 0.8px var(--color-base);
+		padding-bottom: 0.8em;
+		margin-right: 5.3vw;
+		//width: calc(100% - 10.6vw);
+		position: absolute;
+		bottom: math.div(10.6vw, 2);
+		left: math.div(10.6vw, 2);
+		text-align: left;
+
+		@include s.media(md) {
+			/*PCのみ*/
+			display: flex;
+			align-items: center;
+			width: auto;
+			padding-bottom: 0.5em;
+			margin-right: math.div(10.6vw, 2);
+			bottom: 1.5vw;
+		}
+
+		&__title {
+			margin-right: 1em;
+			margin-bottom: 0.5em;
+			@extend %en-font;
+			font-size: 1.7rem;
+			font-weight: 300;
+			color: #000;
+
+			@include s.media(md) {
+				/*PCのみ*/
+				font-size: 2.1rem;
+				margin-right: 3em;
+				margin-bottom: 0;
+			}
+		}
+
+		&__textarea {
+			display: flex;
+			align-items: baseline;
+			line-height: 1.3;
+
+			//   @include s.media(md) {
+			//     /*PCのみ*/
+			//     display: flex;
+			//     align-items: baseline;
+			//   }
+		}
+
+		&__time {
+			margin-right: 1em;
+			font-size: 1.5rem;
+			font-weight: 300;
+			color: #000;
+
+			//   @include s.media(md) {
+			//     /*PCのみ*/
+			//     margin-right: 1em;
+			//   }
+		}
+
+		&__text {
+			font-size: 1.5rem;
+			font-weight: 500;
+			//line-height: 1.73;
+			letter-spacing: 0.05em;
+		}
+	}
+}

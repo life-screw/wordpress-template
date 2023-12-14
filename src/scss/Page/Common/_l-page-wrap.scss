@@ -1,0 +1,11 @@
+@use "sass:math";
+@use "../../Setting/"as s;
+
+.l-page-wrap {
+  margin-top: 15.5em;
+
+  @include s.media(md) {
+    /*PCのみ*/
+    margin-top: 24vmin;
+  }
+}

@@ -1,0 +1,38 @@
+@use "sass:math";
+@use "../../Setting/"as s;
+
+/*
+ * # 	SNS
+ */
+.l-sns {
+  display: inline-flex;
+  align-items: flex-end;
+
+  &__list {
+    padding: 1.5em 1em;
+  }
+
+  &--humnav {
+    margin-right: -8px;
+  }
+
+  &--footer {
+    .twitter {
+      @include s.media(md) {
+        /*PCのみ*/
+        width: 29px;
+      }
+    }
+
+    .facebook {
+      @include s.media(md) {
+        /*PCのみ*/
+        width: 15px;
+      }
+    }
+
+    .instagram {
+      width: 24px;
+    }
+  }
+}

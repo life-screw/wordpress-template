@@ -1,0 +1,23 @@
+//- ページのID名
+- const pageID = "contact"
+include ./Common/_mixinPic
+
+include ./Common/_header.pug
+
+article.l-page-wrap
+	h1.c-sec-title.c-inner-page
+		span.en
+			img(src= imgPath + "text_contact.svg" alt="contact" width="185" height="20")
+		span.jp お問い合わせ
+
+	.c-inner-page.p-contact
+
+		p.p-contact__text 飲食ビジネスに関するご相談などお気軽にお問い合わせください。<br>担当より迅速にご連絡差し上げます。
+		p.p-contact__text ​※各種営業のご連絡には返答しかねることもありますので予めご了承ください。
+		p.p-contact__text #[span.red] * 必須事項です
+
+		.p-form
+			include ./Contact/_snow-monkey-form.html
+
+include ./Common/_footer.pug
+

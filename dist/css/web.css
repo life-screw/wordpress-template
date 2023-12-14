@@ -1,0 +1,470 @@
+@charset "UTF-8";
+/*-------------
+スマホ
+-------------*/
+/*英語フォント*/
+@-webkit-keyframes loadingImg {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 1;
+  }
+  22% {
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0.5;
+  }
+  28% {
+    opacity: 1;
+  }
+  58% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 1;
+  }
+  63% {
+    opacity: 0.5;
+  }
+  65% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 0.5;
+  }
+  67% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  77% {
+    opacity: 0.8;
+  }
+  99% {
+    z-index: 1001;
+  }
+  100% {
+    opacity: 0;
+    z-index: -5;
+  }
+}
+@keyframes loadingImg {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 1;
+  }
+  22% {
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 1;
+  }
+  26% {
+    opacity: 0.5;
+  }
+  28% {
+    opacity: 1;
+  }
+  58% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 1;
+  }
+  63% {
+    opacity: 0.5;
+  }
+  65% {
+    opacity: 1;
+  }
+  66% {
+    opacity: 0.5;
+  }
+  67% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  77% {
+    opacity: 0.8;
+  }
+  99% {
+    z-index: 1001;
+  }
+  100% {
+    opacity: 0;
+    z-index: -5;
+  }
+}
+@-webkit-keyframes loadingBg {
+  0% {
+    display: -webkit-box;
+    display: flex;
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  77% {
+    opacity: 0.8;
+  }
+  99% {
+    z-index: 1001;
+  }
+  100% {
+    opacity: 0;
+    z-index: -5;
+  }
+}
+@keyframes loadingBg {
+  0% {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  77% {
+    opacity: 0.8;
+  }
+  99% {
+    z-index: 1001;
+  }
+  100% {
+    opacity: 0;
+    z-index: -5;
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes viewMoreText {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  49% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  50% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@keyframes viewMoreText {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  49% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  50% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+@-webkit-keyframes viewMoreLine {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  49% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  50% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+@keyframes viewMoreLine {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  49% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  50% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+.p-web__text {
+  margin: 1.5em 0 4.5em;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 2.08;
+  text-align: justify;
+}
+@media print, screen and (min-width:769px) {
+  .p-web__text {
+    /*PCのみ*/
+    margin-bottom: 15vmin;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+  }
+}
+.p-web-sec {
+  margin-bottom: 6.5em;
+  text-align: left;
+}
+@media print, screen and (min-width:769px) {
+  .p-web-sec {
+    /*PCのみ*/
+    margin-bottom: 11em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+.p-web-sec__titlearea {
+  margin-bottom: 1.5em;
+}
+@media print, screen and (min-width:769px) {
+  .p-web-sec__titlearea {
+    /*PCのみ*/
+    width: 270px;
+  }
+}
+.p-web-sec__titlearea p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+@media print, screen and (min-width:769px) {
+  .p-web-sec__titlearea p {
+    /*PCのみ*/
+    margin-top: 0.3em;
+  }
+}
+.p-web-sec__title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #000;
+  letter-spacing: 0.08em;
+}
+@media print, screen and (min-width:769px) {
+  .p-web-sec__table {
+    /*PCのみ*/
+    width: calc(100% - 270px);
+  }
+}
+.p-web-sec__table table {
+  border-bottom: 0.7px solid var(--color-base);
+  width: 100%;
+  margin-bottom: 1px;
+}
+.p-web-sec__table tr {
+  display: table-row;
+  border-top: 0.7px solid var(--color-base);
+}
+.p-web-sec__table th,
+.p-web-sec__table td {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+@media only screen and (max-width:768px) {
+  .p-web-sec__table th,
+.p-web-sec__table td {
+    /*スマホのみ*/
+    display: block;
+    width: 100%;
+    font-size: 1.3rem;
+    line-height: 1.77;
+  }
+}
+@media print, screen and (min-width:769px) {
+  .p-web-sec__table th,
+.p-web-sec__table td {
+    /*PCのみ*/
+    font-size: 1.4rem;
+    line-height: 2.14;
+    padding: 1.65em 0 1.55em;
+    vertical-align: middle;
+  }
+}
+@media only screen and (max-width:768px) {
+  .p-web-sec__table th {
+    /*スマホのみ*/
+    padding: 1.5em 0 0.8em;
+  }
+}
+@media print, screen and (min-width:769px) {
+  .p-web-sec__table th {
+    /*PCのみ*/
+    width: 23.5616438356%;
+  }
+}
+@media only screen and (max-width:768px) {
+  .p-web-sec__table td {
+    /*スマホのみ*/
+    padding-bottom: 1.5em;
+  }
+}
+@media print, screen and (min-width:769px) {
+  .p-web-sec__table td {
+    /*PCのみ*/
+    width: 76.4383561644%;
+    padding-right: 9%;
+  }
+}
+.p-web-sec__table li {
+  position: relative;
+  padding-left: 1em;
+}
+.p-web-sec__table li::before {
+  content: "・";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.p-web-sec__table li + li {
+  margin-top: 0.5em;
+}
+.p-web-application {
+  margin-bottom: 7em;
+  text-align: justify;
+}
+@media print, screen and (min-width:769px) {
+  .p-web-application {
+    /*PCのみ*/
+    margin: 12em 0 22vmin 270px;
+  }
+}
+.p-web-application__title {
+  margin-bottom: 0.5em;
+  font-size: 1.9rem;
+  font-weight: 500;
+}
+@media print, screen and (min-width:769px) {
+  .p-web-application__title {
+    /*PCのみ*/
+    margin-bottom: 0.8em;
+    font-size: 2.2rem;
+  }
+}
+@media print, screen and (min-width:769px) {
+  .p-web-application dl {
+    /*PCのみ*/
+    margin: 2em auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+.p-web-application dt {
+  position: relative;
+  margin: 2em 0 0.3em;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+@media print, screen and (min-width:769px) {
+  .p-web-application dt {
+    /*PCのみ*/
+    margin: 0;
+    width: 9em;
+    text-align: justify;
+  }
+  .p-web-application dt.go-post {
+    letter-spacing: 0.2em;
+  }
+}
+@media print, screen and (min-width:769px) {
+  .p-web-application dt:after {
+    /*PCのみ*/
+    content: "";
+    width: 1px;
+    height: 82%;
+    margin: 0 1em;
+    background: var(--color-base);
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    right: 0;
+    top: 0;
+  }
+}
+.p-web-application p,
+.p-web-application dd {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.77;
+}
+@media print, screen and (min-width:769px) {
+  .p-web-application p,
+.p-web-application dd {
+    /*PCのみ*/
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}
+@media print, screen and (min-width:769px) {
+  .p-web-application dd {
+    /*PCのみ*/
+    margin-left: 1em;
+    width: calc(100% - 9em);
+  }
+}
+.p-web-application a {
+  display: inline-block;
+  border-bottom: 0.7px solid var(--color-base);
+}
+@media print, screen and (min-width:769px) {
+  .p-web-application p + dl {
+    /*PCのみ*/
+    margin-top: 4em;
+  }
+}

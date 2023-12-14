@@ -1,0 +1,108 @@
+@use "../../Setting/" as s;
+
+
+//Snow Monkey Formの完了画面の「追加CSSクラス」に「p-thanks-text」と「p-thanks-gohome」を追加
+.p-thanks {
+	&-text {
+		margin: 1.5em 0 4.5em;
+		font-size: 1.6rem;
+		color: #000;
+		font-weight: 500;
+
+		line-height: 2.08;
+		//text-align: justify;
+
+		@include s.media(md) {
+			/*PCのみ*/
+			margin-bottom: 5em;
+			font-size: 1.8rem;
+			letter-spacing: 0.05em;
+		}
+	}
+
+	/*完了画面 HOMEへ戻る*/
+	&-gohome {
+
+		$this: &;
+		margin: auto;
+		position: relative;
+		display: block;
+		color: #fff;
+		border: 1px solid #282828;
+		background: #282828;
+		text-align: center;
+		width: 23rem;
+		font-size: 1.5rem;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		padding: 1em 0.5em;
+
+		@include s.media(md) {
+			/*PCのみ*/
+			width: 27.6rem;
+			font-size: 1.5rem;
+		}
+
+		&__wrap,
+		a {
+			display: block;
+			height: 1.5em;
+			overflow: hidden;
+			color: inherit;
+		}
+
+		&__text {
+			display: flex;
+			flex-direction: column;
+			line-height: 1.5;
+			transition: all 0.3s ease;
+			transform: translateY(-1.5em);
+
+			@include s.media(mdmax) {
+				//スマホの時のみ
+				transform: translateY(0);
+			}
+
+			&::before {
+				content: attr(data-text);
+				color: #282828;
+			}
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 0;
+			background-color: #fff;
+			opacity: 1;
+			-webkit-transition: all 0.5s ease;
+			transition: all 0.5s ease;
+		}
+
+		&:hover {
+			opacity: 1;
+			background-color: #ededed;
+
+			&:before {
+				height: 100%;
+				background-position: 0 0 !important;
+			}
+
+			a {
+				opacity: 1;
+			}
+
+			#{$this}__wrap {
+				opacity: 1;
+			}
+
+			#{$this}__text {
+				transform: translateY(0);
+			}
+		}
+	}
+}

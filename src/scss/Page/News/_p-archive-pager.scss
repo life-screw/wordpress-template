@@ -1,0 +1,79 @@
+@use "../../Setting/" as s;
+
+.p-archive-pager {
+  margin: 1.7em 0 6.5em -0.6em;
+  position: relative;
+  display: flex;
+  align-items: center;
+  //justify-content: center;
+  flex-wrap: wrap;
+
+  @include s.media(md) {
+    margin-top: 3.5em;
+  }
+
+  .page-numbers {
+    position: relative;
+    //width: 30px;
+    // height: 25px;
+    padding: 1em 0.5em 10px;
+    margin-right: 0.8em;
+    //margin: 0 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //border-bottom: solid 1px transparent;
+    font-family: Roboto;
+    font-size: 1.4rem;
+    color: var(--color-blue);
+    &::after {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      content: "";
+      display: block;
+      width: 1em;
+      height: 1px;
+      background: transparent;
+    }
+
+    &:hover {
+      opacity: 1;
+      &::after {
+        background: var(--color-base);
+      }
+    }
+
+    &.current {
+      &::after {
+        background: var(--color-base);
+      }
+    }
+
+    &.prev,
+    &.next {
+      // width: 26.8px;
+      // border: none;
+      display: none;
+
+      // &:hover {
+      //   opacity: 1;
+      //   background-color: transparent;
+      // }
+    }
+
+    // &.prev {
+    //   &:hover {
+    //     transform: translateX(-6px);
+    //   }
+    // }
+
+    // &.next {
+    //   &:hover {
+    //     transform: translateX(6px);
+    //   }
+    // }
+  }
+}

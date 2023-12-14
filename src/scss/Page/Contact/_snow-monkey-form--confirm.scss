@@ -1,0 +1,250 @@
+@use "../../Setting/" as s;
+
+/*エラー文-------------*/
+.p-form {
+	@include s.media(mdmax) {
+
+		/*スマホのみ*/
+		.smf-item {
+			position: relative;
+
+			.smf-error-messages {
+				margin-top: 0;
+				position: absolute;
+				line-height: 1;
+				top: 0;
+				right: 0;
+				text-align: right;
+				// font-size: 86%;
+
+				&+.smf-error-messages {
+					top: 1.2em;
+				}
+			}
+		}
+	}
+
+	@media only screen and (max-width: 374px) {
+
+		/*スマホ最小サイズ*/
+		.p-form__mail {
+			.smf-error-messages {
+				width: 180px;
+			}
+		}
+
+		// .p-form__kana-title {
+		// 	.smf-error-messages {
+		// 		width: 220px;
+		// 		white-space: nowrap;
+		// 		overflow: hidden;
+		// 		text-overflow: ellipsis;
+		// 	}
+		// }
+	}
+
+	@include s.media(md) {
+
+		/*PCのみ*/
+		.smf-item {
+			position: relative;
+
+			.smf-error-messages {
+				margin-top: 0;
+				position: absolute;
+				top: 3.2rem;
+				left: 0;
+				// font-size: 77%;
+				// margin-top: 0.8em;
+				line-height: 1.45;
+			}
+		}
+	}
+
+	.p-form__radio {
+		.smf-error-messages {
+			@include s.media(md) {
+				width: 100%;
+				margin-top: 0.5em;
+			}
+		}
+	}
+}
+
+/*エラーメッセージ追加*/
+.error-message {
+	display: none;
+	font-size: 105%;
+	line-height: 1.54;
+	color: #b70000;
+	margin: -3em auto 3em;
+
+	@include s.media(md) {
+		margin: -4.5em auto 6.2em;
+	}
+}
+
+.body__mw_wp_form_error {
+	.error-message {
+		display: block;
+	}
+}
+
+/*確認メッセージ追加*/
+.confirm-message {
+	display: none;
+	margin: 0 auto 3em;
+	line-height: 1.8;
+	color: #000;
+
+	@include s.media(md) {
+		margin: -2em auto 4em;
+	}
+}
+
+.body__mw_wp_form_confirm {
+	.confirm-message {
+		display: block;
+	}
+}
+
+// /*エラー画面と確認画面---------------------*/
+// .snow-monkey-form[data-screen="confirm"] {
+// 	.p-contact__text {
+// 		display: none;
+// 	}
+// }
+
+/*確認画面---------------------*/
+.snow-monkey-form[data-screen="confirm"] {
+	.p-contact__note {
+		display: none;
+	}
+
+	.smf-item {
+		@include s.media(mdmax) {
+			/*スマホのみ*/
+			margin-bottom: 3.8rem;
+		}
+	}
+
+	.p-form__radio {
+		margin: 0.8em 0 0;
+		display: block;
+		font-size: inherit;
+
+		//line-height: 1;
+		@include s.media(md) {
+			/*PCのみ*/
+			margin: 0;
+			line-height: 1;
+		}
+	}
+
+	.p-form__2column {
+		justify-content: flex-start;
+
+		.column {
+			border: none;
+			width: auto;
+
+			//line-height: 1;
+			@include s.media(md) {
+				/*PCのみ*/
+				line-height: 1;
+			}
+
+			&+.column {
+				margin-left: 1em;
+			}
+
+			&>p {
+				display: none;
+			}
+
+			&>div {
+				width: auto;
+			}
+		}
+
+	}
+
+	.wp-block-columns.is-not-stacked-on-mobile>.wp-block-column {
+		flex-basis: auto;
+		flex-grow: 0;
+	}
+
+	.p-form__mail .smf-item__col--controls {
+		border: none;
+		line-height: 1;
+	}
+
+	.p-form__select::after {
+		display: none;
+	}
+
+	.p-form__textarea {
+		.smf-item__col--controls {
+			line-height: 1.45;
+
+			@include s.media(md) {
+				//タブレット・pcの時
+				line-height: 1.75;
+			}
+		}
+	}
+
+	/*プログレストラッカー------------*/
+	.smf-progress-tracker {
+		@include s.media(md) {
+			//タブレット・pcの時
+			margin-bottom: 5.2em;
+		}
+	}
+
+	/*送信ボタン（戻る・送信する）=============（フォーム項目の外）*/
+	.smf-action {}
+
+	.smf-button-control {
+		&:first-child {
+			//戻るボタン
+			border-color: transparent;
+			color: #000;
+			background: #c4c4c4;
+
+			@include s.media(mdmax) {
+				//スマホの時のみ
+				margin-bottom: 1.2em;
+			}
+
+			button {
+				border-color: transparent;
+				color: #000;
+			}
+
+			&:hover {
+
+				@include s.media(md) {
+					/*PCのみ*/
+
+					opacity: 1;
+					background-color: #ededed;
+					border-color: #282828;
+
+					&::before {
+						height: 100%;
+						background-position: 0 0 !important;
+					}
+
+				}
+			}
+		}
+
+		&+.smf-button-control {
+			@include s.media(mdmax) {
+				//スマホの時のみ
+				margin-left: auto;
+			}
+		}
+	}
+}

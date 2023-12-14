@@ -1,0 +1,672 @@
+@use "../../Setting/" as s;
+@use "sass:math";
+
+/*フォーム部分-----------*/
+.p-form {
+	//border-top: solid 1px #cccccc;
+	//padding-top: 1em;
+	font-size: 1.3rem;
+	font-weight: 500;
+	line-height: 2.08;
+	caret-color: transparent;
+
+	@include s.media(md) {
+		font-size: 1.4rem;
+		line-height: 2.14;
+	}
+
+	.smf-item {
+		//display: table;
+		width: 100%;
+		text-align: left;
+		//border-bottom: 1px solid #ccc;
+		//padding-bottom: 1em;
+		//margin-bottom: 1em;
+		margin-bottom: 2.8em;
+		caret-color: transparent;
+
+		@include s.media(md) {
+			display: flex;
+			margin-bottom: 4em;
+		}
+	}
+
+	.smf-item__col--controls,
+	.smf-item__controls,
+	.wp-block-columns,
+	.smf-placeholder,
+	.smf-text-control {
+		caret-color: transparent;
+	}
+
+
+	.smf-item__col--label {
+		width: 100%;
+		margin-bottom: 0.5em;
+		line-height: 1;
+		letter-spacing: 0;
+		padding-right: 0;
+		font-size: 1.6rem;
+		color: #000;
+
+		@include s.media(md) {
+			width: 235px;
+			overflow: hidden;
+			padding-right: 1em;
+			line-height: 1;
+			font-size: 1.8rem;
+		}
+	}
+
+	.smf-item__col--controls {
+		width: 100%;
+
+		@include s.media(md) {
+			width: calc(100% - 235px);
+		}
+
+		//入力エリアの外枠----------
+		.smf-text-control,
+		.smf-select-control,
+		.smf-textarea-control {
+			border: solid 1px var(--color-base);
+		}
+
+		//入力エリア----------
+		input[type="text"],
+		input[type="url"],
+		input[type="email"],
+		.smf-textarea-control__control,
+		.smf-select-control select {
+			padding: 1.2em 0.9em;
+			//font-size: 1.143rem;
+			font-size: inherit;
+			width: 100%;
+			background: transparent;
+			caret-color: #000; //テキスト入力フィールドやテキストエリア内で現在の入力位置を示すために表示される縦線
+			border: transparent;
+			box-shadow: none;
+
+			@include s.media(mdmax) {
+				/*スマホのみ*/
+				font-size: 16px; //スマホでフォーム入力時に拡大しないようにするため。
+			}
+
+			@include s.media(md) {
+				// color: #1a1a1a;
+				// padding: 0.4em 0.55em;
+				// font-size: 1.7rem;
+				// max-width: 460px;
+			}
+
+			// &::placeholder {
+			//   color: #9a9a9a;
+			// }
+			&:focus,
+			&:focus-within,
+			&:hover {
+				transition: all 0.25s ease;
+				border-color: transparent;
+				background-color: rgba($color: #ededed, $alpha: .5);
+			}
+
+			&[data-invalid="1"] {
+				background-color: rgba($color: #cc3033, $alpha: .1);
+			}
+		}
+
+
+		//セレクトボックスの矢印箇所----------
+		.smf-select-control select {
+			padding-right: 1.7em
+		}
+
+		.smf-select-control__toggle:before {
+			top: calc(50% - 14px);
+			height: 16px;
+			width: 16px;
+			border-color: #000;
+		}
+
+		.smf-select-control__control:focus+.smf-select-control__toggle:before {
+			border-color: inherit;
+		}
+
+
+		// .smf-textarea-control__control {
+
+		// 	@include s.media(md) {
+		// 		/*PCのみ*/
+		// 		margin-top: 0;
+		// 		padding: 1.2em;
+		// 	}
+
+		// 	&:focus {
+		// 		border-color: inherit;
+		// 	}
+		// }
+
+		select {
+			option {
+				font-size: inherit;
+			}
+		}
+
+		/*チェックボックス*/
+		// input[type="checkbox"] {
+		//   border-radius: 2px;
+		//   border: solid 1px #767676;
+		//   appearance: checkbox;
+		// }
+
+		// .mwform-checkbox-field.vertical-item {
+		//   label {
+		//     input {
+		//       display: inline-block;
+		//       vertical-align: text-top;
+		//     }
+
+		//     span {
+		//       display: inline-block;
+		//       vertical-align: text-bottom;
+		//     }
+		//   }
+		// }
+
+		/*ラジオボタン*/
+		// input[type="radio"] {
+		//   border-radius: 2px;
+		//   border: solid 1px var(--color-base);
+		//   appearance: radio;
+		// }
+
+		// .mwform-radio-field.vertical-item {
+		//   label {
+		//     input {
+		//       display: inline-block;
+		//       vertical-align: text-top;
+		//     }
+
+		//     span {
+		//       display: inline-block;
+		//       vertical-align: text-bottom;
+		//     }
+		//   }
+		// }
+	}
+
+	/*メールフォーム確認の項目*/
+	&__mailconfirmation {
+		@include s.media(md) {
+			margin-top: -2em;
+		}
+	}
+
+	/*テキストボックスの項目*/
+	&__textarea {
+		@include s.media(md) {
+			margin-top: 5em;
+		}
+
+		.smf-item__col--label,
+		.smf-item__col--controls {
+			@include s.media(md) {
+				vertical-align: top;
+			}
+		}
+
+		textarea {
+			@include s.media(md) {
+				height: 265px;
+			}
+		}
+	}
+
+	/*セレクトボックスの矢印*/
+	&__select {
+		position: relative;
+		display: inline-block;
+		width: 100%;
+
+		@include s.media(md) {
+			max-width: 460px;
+		}
+
+		&::after {
+			position: absolute;
+			top: 0.8em;
+			right: 20px;
+			content: "";
+			width: s.vw(s.$spDesign, 12);
+			height: s.vw(s.$spDesign, 12);
+			// border-top: 5px solid #0d0d0d;
+			// border-right: 5px solid transparent;
+			// border-bottom: 5px solid transparent;
+			// border-left: 5px solid transparent;
+			border-right: 1px solid var(--color-base);
+			border-bottom: 1px solid var(--color-base);
+			transform: rotate(45deg);
+			display: block;
+
+			@include s.media(md) {
+				width: 17px;
+				height: 17px;
+				top: 0.5em;
+			}
+		}
+	}
+
+	/*ラジオボタン*/
+	.smf-radio-buttons-control__control {
+		margin: 1em 0 3.5em;
+		display: block;
+
+		@include s.media(mdmax) {
+			/*スマホのみ*/
+			font-size: 16px;
+		}
+
+		@include s.media(md) {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0;
+		}
+
+		.smf-label {
+			@include s.media(mdmax) {
+				//スマホの時のみ
+				margin: 1.5em 0 0 0 !important;
+				display: block !important;
+			}
+
+			@include s.media(md) {
+				/*PCのみ*/
+				margin: 0 7% 1.3em 0 !important;
+			}
+
+			&:hover,
+			&:focus,
+			&:focus-within {
+				transition: all .25s ease;
+				color: #000;
+				background: none;
+
+				.smf-radio-button-control__label:before {
+					border-color: #000;
+					background-color: #fff;
+				}
+			}
+
+			label {
+				&:active {
+					background-color: transparent;
+					/* またはお好みの色 */
+					-webkit-tap-highlight-color: rgba(255, 255, 255, 0.5);
+					/* Webkitベースのブラウザ（AndroidのChromeを含む）でクリックしたときに背景が水色→完全透明 */
+				}
+			}
+		}
+
+		.smf-radio-button-control {
+			/*ボタンをテキストと中央揃いにする*/
+			display: flex;
+			align-items: center;
+
+			@include s.media(mdmax) {
+				//スマホの時のみ
+				height: 1.4em;
+			}
+		}
+
+		.smf-radio-button-control__label {
+			display: flex;
+			align-items: center;
+			font-size: inherit;
+			///*ラベルの位置＋余白*/
+			//padding-left: 2em;
+			line-height: 1;
+			cursor: pointer;
+			position: relative;
+			transition: background-color 0.25s linear;
+
+			@include s.media(md) {
+				font-size: 1.6rem;
+				//padding-left: 2.8rem;
+			}
+
+			&:before {
+				content: "";
+				/* ボタンの横幅 */
+				width: 1em;
+				/* ボタンの縦幅 */
+				height: 1em;
+				// position: absolute;
+				// top: 0;
+				// left: 0;
+				margin-right: 1em;
+				border: 1px solid var(--color-base);
+				//background-color: #fff;
+				//box-shadow: 0px 0px 4px -1px rgba(0, 0, 0, 0.4) inset;
+				border-radius: 50%;
+
+				@include s.media(md) {
+					// width: 16px;
+					// height: 16px;
+				}
+			}
+		}
+
+		input[type="radio"] {
+			display: none;
+
+			// &[data-invalid="1"]+.smf-radio-button-control__label:before {
+			// 	background-color: rgba($color: #cc3033, $alpha: .1);
+			// }
+
+			// &:active {
+			// 	background-color: transparent;
+			// 	/* またはお好みの色 */
+			// 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0.5);
+			// /* Webkitベースのブラウザ（AndroidのChromeを含む）でクリックしたときに背景が水色→完全透明 */
+			// }
+
+			&:checked+.smf-radio-button-control__label:after {
+				content: "";
+				/* マークの横幅 */
+				width: 0.6em;
+				/* マークの縦幅 */
+				height: 0.6em;
+				position: absolute;
+				margin: auto;
+				//top: calc((1em - 0.6em) / 2 + 1.5px);
+				top: 0;
+				// left: calc((1em - 0.6em) / 2 + 1px);
+				left: calc((1em - 0.6em) / 2);
+				bottom: 0;
+				background-color: #000;
+				border-radius: 50%;
+				transition: background-color 0.25s linear;
+
+				@include s.media(md) {
+					// width: 10px;
+					// height: 10px;
+				}
+			}
+		}
+	}
+
+	// 名前の2カラム部分
+	&__2column {
+		display: flex;
+		justify-content: space-between;
+
+		.column {
+			border-bottom: solid 1px var(--color-base);
+			display: flex;
+			justify-content: space-between;
+			width: s.p(325, 150);
+			caret-color: transparent;
+
+			@include s.media(md) {
+				/*PCのみ*/
+				width: s.p(765, 365);
+			}
+
+			&>p {
+				// width: 2.5em;
+				display: flex;
+				align-items: center;
+				caret-color: transparent;
+
+				// @include s.media(md) {
+				// 	/*PCのみ*/
+				// 	width: 2em;
+				// }
+			}
+
+			&--name {
+				&>div {
+					width: calc(100% - 1.3rem - .5rem);
+
+					@include s.media(md) {
+						/*PCのみ*/
+						width: calc(100% - 1.4rem);
+					}
+				}
+			}
+
+			&--kana {
+				&>div {
+					width: calc(100% - (1.3rem*2));
+
+					@include s.media(md) {
+						/*PCのみ*/
+						width: calc(100% - (1.4rem*2) + 0.1rem);
+					}
+				}
+			}
+
+			&>div {
+				@include s.media(mdmax) {
+					//スマホの時のみ
+					padding-bottom: 1px;
+				}
+
+				// input {
+				// 	caret-color: #000;
+				// }
+			}
+		}
+	}
+
+	&__mail {
+
+		.smf-item__col--controls {
+			border-bottom: solid 1px var(--color-base);
+			padding: inherit;
+		}
+	}
+
+}
+
+/*プログレストラッカー------------*/
+.smf-progress-tracker {
+	margin: 0 auto 5em;
+	font-size: 1.3rem;
+
+	@include s.media(md) {
+		margin: 0 auto 7.5em;
+		font-size: 1.4rem;
+	}
+}
+
+.smf-progress-tracker__item {
+	&:first-child {
+		align-items: flex-start;
+
+		&:after {
+			left: 0;
+		}
+	}
+
+	&:last-child {
+		align-items: flex-end;
+
+		&::before {
+			right: 0;
+		}
+	}
+}
+
+// [data-screen=back] .smf-progress-tracker__item--input,
+// [data-screen=complete] .smf-progress-tracker__item--complete,
+// [data-screen=confirm] .smf-progress-tracker__item--confirm,
+// [data-screen=input] .smf-progress-tracker__item--input,
+// [data-screen=invalid] .smf-progress-tracker__item--input {
+// 	.smf-progress-tracker__item__number {
+// 		margin-top: -6px;
+// 		background: #869f84;
+// 		border: 6px solid #788e76;
+// 	}
+
+// 	&:first-child {
+// 		.smf-progress-tracker__item__number {
+// 			margin-left: -6px;
+// 		}
+// 	}
+
+// 	&:last-child {
+// 		.smf-progress-tracker__item__number {
+// 			margin-right: -6px;
+// 		}
+// 	}
+// }
+
+/*送信ボタン=============（フォーム項目の外）*/
+.snow-monkey-form {
+
+	.smf-action {
+		margin: 2.5em auto 0;
+
+		@include s.media(md) {
+			/*PCのみ*/
+			margin-top: 6em;
+			display: flex;
+			justify-content: center;
+		}
+	}
+
+	.smf-button-control {
+		// $this: &;
+
+		margin: auto;
+		cursor: pointer;
+		position: relative;
+		display: block;
+		color: #fff;
+		border: 1px solid #282828;
+		background: #282828;
+		// padding: 1em 0.5em;
+		text-align: center;
+		width: 23rem;
+		font-size: 1.5rem;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+
+		@include s.media(md) {
+			width: 27.6rem;
+			font-size: 1.5rem;
+			margin: 0 1em;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 100%;
+			height: 0;
+			background-color: #fff;
+			opacity: 1;
+			transition: all 0.5s ease;
+
+			@include s.media(mdmax) {
+				/*スマホのみ*/
+				display: none;
+			}
+		}
+
+
+		button {
+			padding: 1em 0.5em;
+			display: block;
+			width: 100%;
+			height: 100%;
+			background: transparent;
+			border: none;
+			color: inherit;
+		}
+
+
+		// &--confirm {
+		// 	//   display: none; //入力画面では消しておく
+
+		// 	border-color: transparent;
+		// 	color: #000;
+		// 	background: #c4c4c4;
+
+
+		// }
+
+		// &--gohome {
+		// 	margin-left: auto;
+		// 	margin-right: auto;
+
+		// 	a {
+		// 		color: inherit;
+
+		// 		&:hover {
+		// 			opacity: 1;
+		// 		}
+		// 	}
+		// }
+
+		&:hover {
+			@include s.media(md) {
+				/*PCのみ*/
+				opacity: 1;
+				background-color: #ededed;
+
+				button {
+					color: #000;
+				}
+
+				// &.p-form-submit--confirm {
+				// 	border-color: #282828;
+				// }
+
+				&::before {
+					height: 100%;
+					background-position: 0 0 !important;
+				}
+
+			}
+		}
+
+		/*ボタンを押し時のぐるぐる*/
+		.smf-sending {
+			z-index: 100;
+			background-color: rgba(#ccc, .8);
+			border-radius: 50%;
+		}
+	}
+}
+
+/*フォーム 必須、任意*/
+// %formIcon {
+//   font-size: 0.857rem;
+//   font-weight: normal;
+//   text-align: center;
+//   padding: 0.2em 1em;
+//   letter-spacing: 0.1em;
+//   line-height: 1;
+// }
+
+// .p-form__icon {
+//   &--required {
+//     color: #bc013a;
+
+//     // @extend %formIcon;
+//     // background: var(--color-base);
+//     // color: #ffffff;
+//     @include s.media(md) {
+//       font-size: 1.6rem;
+//     }
+//   }
+
+//   // &--optional {
+//   //   @extend %formIcon;
+//   //   background: #f3f3f3;
+//   // }
+// }

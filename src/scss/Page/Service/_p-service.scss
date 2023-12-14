@@ -1,0 +1,227 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.p-service {
+  &__text {
+    margin: 1.5em 0 4.5em;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+
+    line-height: 2.08;
+    text-align: justify;
+
+    @include s.media(md) {
+      /*PCのみ*/
+      margin-bottom: 15vmin;
+      font-size: 1.4rem;
+      //letter-spacing: 0.05em;
+    }
+  }
+
+  &-secarea {
+    margin-bottom: 10em;
+    @include s.media(md) {
+      /*PCのみ*/
+      margin-bottom: 15vmin;
+    }
+  }
+
+  &-sec {
+    position: relative;
+    //border-left: 0.7px solid var(--color-base);
+    padding: 0 0 5.8em 8.2vw;
+    margin-top: -0.4rem;
+    margin-left: 0.2rem;
+    text-align: left;
+    @include s.media(md) {
+      /*PCのみ*/
+      display: flex;
+      justify-content: space-between;
+      padding: 0 0 7.8em 3em;
+    }
+    &:last-child {
+      padding-bottom: 0;
+    }
+    &::before {
+      position: absolute;
+      //left: -0.4rem;
+      //top: -0.4rem;
+      left: 0;
+      top: 0.4rem;
+      content: "";
+      display: block;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      background: #000;
+      z-index: 2;
+    }
+    &::after {
+      position: absolute;
+      left: calc(0.4rem - 1px);
+      top: 0.4rem;
+      content: "";
+      display: block;
+      width: 1px;
+      height: 0;
+      background: var(--color-base);
+
+      transition: height 1s ease-out;
+      will-change: height;
+      z-index: 1;
+    }
+    &__titlearea {
+      //margin-top: -1em;
+      margin-bottom: 1.5em;
+      @include s.media(md) {
+        /*PCのみ*/
+        width: 282px;
+      }
+      p {
+        font-size: 1.2rem;
+        font-weight: 500;
+        @include s.media(md) {
+          /*PCのみ*/
+          margin-top: 0.3em;
+        }
+      }
+    }
+    &__title {
+      margin-bottom: 0.6em;
+      display: flex;
+      @extend %en-font;
+      font-size: 1.9rem;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: 0.05em;
+      color: #000;
+      i.number {
+        font-family: Roboto, sans-serif;
+        font-size: 1.8rem;
+        font-weight: 300;
+        font-style: normal;
+        display: inline-block;
+        margin-right: 0.6em;
+      }
+    }
+    &__textarea {
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 1.87;
+      @include s.media(md) {
+        /*PCのみ*/
+        width: calc(100% - 282px);
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 2.24;
+        letter-spacing: 0.02em;
+      }
+    }
+    &__subtitle {
+      margin-bottom: 0.5em;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #000;
+      @include s.media(md) {
+        /*PCのみ*/
+        margin-bottom: 1em;
+        font-size: 1.7rem;
+        line-height: 1;
+      }
+    }
+  }
+
+  &-application {
+    margin-bottom: 7em;
+    text-align: justify;
+    @include s.media(md) {
+      /*PCのみ*/
+      margin: 12em 0 22vmin 282px;
+    }
+    &__title {
+      margin-bottom: 0.5em;
+      font-size: 1.9rem;
+      font-weight: 500;
+      @include s.media(md) {
+        /*PCのみ*/
+        margin-bottom: 0.8em;
+        font-size: 2.2rem;
+      }
+    }
+    dl {
+      @include s.media(md) {
+        /*PCのみ*/
+        margin: 2em auto;
+        display: flex;
+      }
+    }
+    dt {
+      position: relative;
+      margin: 2em 0 0.3em;
+      font-size: 1.4rem;
+      font-weight: 500;
+      @include s.media(md) {
+        /*PCのみ*/
+        margin: 0;
+        width: 9em;
+        text-align: justify;
+        &.go-post {
+          letter-spacing: 0.2em;
+        }
+      }
+      &:after {
+        @include s.media(md) {
+          /*PCのみ*/
+          content: "";
+          width: 1px;
+          height: 82%;
+          margin: 0 1em;
+          background: var(--color-base);
+          position: absolute;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+    p,
+    dd {
+      font-size: 1.3rem;
+      font-weight: 500;
+      line-height: 1.77;
+      @include s.media(md) {
+        /*PCのみ*/
+        font-size: 1.4rem;
+        font-weight: 500;
+      }
+    }
+    dd {
+      @include s.media(md) {
+        /*PCのみ*/
+        margin-left: 1em;
+        width: calc(100% - 9em);
+      }
+    }
+    a {
+      display: inline-block;
+      border-bottom: 0.7px solid var(--color-base);
+    }
+    p + dl {
+      @include s.media(md) {
+        /*PCのみ*/
+        margin-top: 4em;
+      }
+    }
+  }
+
+  /*フェードインしたときに出てくる縦ライン*/
+  &-sec {
+    &.is-show {
+      &::after {
+        height: 100%;
+      }
+    }
+  }
+}

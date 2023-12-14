@@ -1,0 +1,49 @@
+@use "../../Setting/"as s;
+
+.c-button-b-seach {
+  margin: auto;
+  width: s.vw(s.$spDesign, 270);
+
+  @include s.media(md) {
+    width: 100%;
+    max-width: 44.8rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7em 0.5em;
+    background-color: var(--color-blue);
+    font-size: s.vw(s.$spDesign, 15);
+    font-weight: 500;
+    color: #fff;
+    transition: all 0.3s ease-out;
+
+    @include s.media(md) {
+      font-size: 1.8rem;
+      padding: 0.7em;
+      letter-spacing: 0.1em;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: s.vw(s.$spDesign, 24);
+      height: s.vw(s.$spDesign, 24);
+      background: url(../img/common/ico_search.svg) no-repeat center center / contain;
+      margin-left: 0.5em;
+
+      @include s.media(md) {
+        width: 3.111rem;
+        height: 3.111rem;
+        margin-left: 1em;
+      }
+    }
+
+    &:hover {
+      background-color: var(--color-base);
+      opacity: 1;
+    }
+  }
+}

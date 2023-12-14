@@ -1,0 +1,17 @@
+//オーバーレイ
+.c-overlay {
+	display: block;
+	z-index: 998;
+	width: 0;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	transition: width ease-out 0.3s;
+	background-color: #DBE2DA;
+
+	//クリックした時
+	&.is-active {
+		width: 100%;
+	}
+}

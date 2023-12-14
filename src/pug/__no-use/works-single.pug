@@ -1,0 +1,51 @@
+//- ページのID名
+- const pageID = "works"
+
+include _header.pug
+
+article.p-works.l-page-wrap.l-inner
+	.l-page-listwrap
+		.c-sec-title.p-home-philosophy__title.js-fadein
+			h1.c-sec-title__title.u-upper.js-fadein__inner WORKS
+
+		nav.c-cat-pagelink.js-fadein
+			ul.js-fadein__inner
+				li
+					a.is-show.u-upper(href=" ") All
+				li
+					a.u-upper(href=" ") WEB
+				li
+					a.u-upper(href=" ") GRAPHIC
+				li
+					a.u-upper(href=" ") BRANDING
+				li
+					a.u-upper(href=" ") MOVIE
+
+	.p-works-single
+		.p-works-single__contents
+			figure
+				img(src="https://fakeimg.pl/868x550" alt="	" width="868" height="550")
+			figure
+				img(src="https://fakeimg.pl/868x550" alt="	" width="868" height="550")
+			figure
+				img(src="https://fakeimg.pl/868x550" alt="	" width="868" height="550")
+
+		p.p-works-single__year 2022
+		p.p-works-single__textarea Art Direction：Taro Yamada<br>Design： Taro Yamada
+
+	.p-works-pager
+		.p-works-pager__btn.p-works-pager__btn--back
+			a(href=" ")
+				figure
+					img(src="https://fakeimg.pl/312x200" alt="	" width="312" height="200")
+				span.p-works-pager__link-wrap
+					span.p-works-pager__link-inner
+						span.p-works-pager__link-text Back
+		.p-works-pager__btn.p-works-pager__btn--next
+			a(href=" ")
+				figure
+					img(src="https://fakeimg.pl/312x200" alt="	" width="312" height="200")
+				span.p-works-pager__link-wrap
+					span.p-works-pager__link-inner
+						span.p-works-pager__link-text Next
+include _footer.pug

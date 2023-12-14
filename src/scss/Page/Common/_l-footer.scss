@@ -1,0 +1,207 @@
+@use "../../Setting/" as s;
+
+.l-footer {
+  //margin-top: 20vh;
+  //   margin-top: 40vh;
+
+  a {
+    color: inherit;
+  }
+
+  // &__inner {
+  //   opacity: 0;
+  //   //transition: opacity .4s ease; //クラスが外れた時の動き
+
+  //   &.is-active {
+  //     opacity: 1;
+  //     transition: opacity 1s ease-in-out;
+  //   }
+  // }
+
+  &__wrapper {
+    // position: fixed;
+    // left: 0;
+    // top: 0;
+    //margin-top: -20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #282828;
+    color: #fff;
+    overflow: hidden;
+    //height: 100vh;
+    width: 100%;
+    //transform: translateY(100vh);
+    //opacity: 0;
+    //visibility: hidden; //最初非表示
+    //z-index: -1;
+    transition: z-index 0.5s 0.5s ease; //クラスが外れた時の動き
+
+    // &.is-active {
+    //   z-index: 100;
+    //   //visibility: visible;
+    //   //opacity: 1;
+    //   //animation-delay: 0.2s;
+    //   // animation-name: fadeIn;
+    //   // animation-duration: 1s;
+    //   // //animation-iteration-count: 1; //実行回数
+    //   // animation-fill-mode: both; //アニメーション再生後は最後のキーフレーム（100%）を適応
+    //   transition: z-index 1s ease-in-out;
+    // }
+  }
+
+  &__contact {
+    a {
+      position: relative;
+      display: block;
+      @extend %en-font;
+      margin: s.vw(s.$spDesign, 80) auto 5.5rem;
+      border-top: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      padding: 0.6em 0;
+      text-align: center;
+      width: 23.092rem;
+      font-size: 2rem;
+
+      @include s.media(md) {
+        /*PCのみ*/
+        margin: 13rem auto 10rem;
+        font-size: 2.1rem;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 0;
+        background-color: #fff;
+        opacity: 1;
+        transition: all 0.5s ease;
+      }
+
+      .wrap {
+        display: block;
+        height: 1.5em;
+        overflow: hidden;
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.5;
+        transition: all 0.3s ease;
+        transform: translateY(-1.5em);
+        letter-spacing: 0.08em;
+
+        &::before {
+          content: attr(data-text);
+          color: #000;
+        }
+      }
+
+      &:hover {
+        @include s.media(md) {
+          /*PCのみ*/
+          opacity: 1;
+          background-color: rgba(0, 0, 0, 0);
+
+          &::before {
+            height: 100%;
+            background-position: 0 0 !important;
+          }
+
+          .text {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  }
+
+  &__message {
+    @extend %en-font;
+    font-size: 1.1rem;
+    letter-spacing: 0.4em;
+    @include s.media(md) {
+      /*PCのみ*/
+      letter-spacing: 0.43em;
+      padding-left: 0.8em;
+    }
+  }
+
+  &-info {
+    @include s.media(lg) {
+      /*PCのみ*/
+      margin: 3.5rem auto 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__logo {
+      margin: 2.5em auto 3em;
+      width: 12.8rem;
+
+      a {
+        display: block;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      @include s.media(md) {
+        /*PCのみ*/
+        width: 18.32rem;
+      }
+
+      @include s.media(lg) {
+        display: inline-block;
+        margin: 0;
+      }
+    }
+
+    &__address {
+      margin-bottom: 2.5em;
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.67;
+      text-align: left;
+
+      @include s.media(lg) {
+        /*PCのみ*/
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0.5em 0 0 1em;
+      }
+
+      p {
+        @include s.media(lg) {
+          /*PCのみ*/
+          margin-left: 2.5em;
+        }
+      }
+
+      a {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__copyright {
+    @extend %en-font;
+    margin: 0.8em auto 1.5em;
+    font-size: 1.2rem;
+
+    @include s.media(md) {
+      /*PCのみ*/
+      margin: 4em auto 3.5em;
+    }
+  }
+}

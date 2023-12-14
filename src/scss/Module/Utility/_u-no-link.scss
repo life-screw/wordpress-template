@@ -1,0 +1,12 @@
+@use "sass:math";
+@use "../../Setting/"as s;
+
+//
+// # 	無効化したリンクのカーソルを消す
+// 記述例:
+// a(href="javascript:void(0);"class="no-link")
+//
+.u-no-link {
+  cursor: default;
+  pointer-events: none;
+}

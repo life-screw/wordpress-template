@@ -1,0 +1,76 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+//ハンバーガーボタン
+.l-hum {
+  display: block;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 27 + 25 + 25px;
+  height: 47 + 15px;
+  transform: translate(0, 0);
+  transition: all 0.05s;
+  cursor: pointer;
+
+  //background-color: #3c3c3c;
+  @include s.media(md) {
+    /*PCのみ*/
+    right: 45 - 25px;
+    height: 68px;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: s.p(27 + 25 + 25, 27);
+    height: 1px;
+    background-color: #000000;
+    transition: transform 0.05s;
+    transform: translateX(85%);
+
+    &:nth-child(1) {
+      bottom: 26px;
+    }
+
+    &:nth-child(2) {
+      bottom: 18px;
+    }
+
+    // &:nth-child(3) {
+    //   top: 68%;
+    // }
+  }
+
+  // //スクロールした時
+  // &.is-down {
+  //   height: 47px;
+  // }
+
+  //ボタンを押したとき
+  &.is-active {
+    span {
+      background-color: #fff;
+
+      &:nth-child(1) {
+        transform: translate(85%, 8px) rotate(-45deg);
+      }
+
+      // &:nth-child(2) {
+      //   opacity: 0;
+      // }
+
+      &:nth-child(2) {
+        transform: translate(85%, 0px) rotate(45deg);
+      }
+    }
+  }
+  //Footerの上に来た時
+  &.is-footer {
+    span {
+      background-color: #fff;
+    }
+  }
+}

@@ -1,0 +1,605 @@
+<style id="snow-monkey-forms-control-select-style-inline-css" type="text/css">
+  .smf-form .smf-item .smf-select-control {
+    display: inline-block;
+  }
+  .smf-form .smf-item .smf-select-control__toggle {
+    display: none;
+  }
+  @supports ((-webkit-appearance: none) or (appearance: none)) or
+    (-moz-appearance: none) {
+    .smf-form .smf-item .smf-select-control {
+      position: relative;
+    }
+    .smf-form .smf-item .smf-select-control__control {
+      --_border-radius: var(--_global--border-radius);
+      --_transition-duration: var(--_global--transition-duration);
+      --_transition-function-timing: var(--_global--transition-function-timing);
+      --_transition-delay: var(--_global--transition-delay);
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: initial;
+      border: 1px solid var(--_form-control-border-color);
+      border-radius: var(--_border-radius);
+      cursor: pointer;
+      display: inline-block;
+      line-height: 1;
+      max-width: 100%;
+      outline: 0;
+      padding: var(--_padding-1) var(--_padding2) var(--_padding-1)
+        var(--_padding-1);
+      position: relative;
+      transition: border var(--_transition-duration)
+        var(--_transition-function-timing) var(--_transition-delay);
+      z-index: 1;
+    }
+    .smf-form .smf-item .smf-select-control__control:hover {
+      border-color: var(--_form-control-border-color-hover);
+    }
+    .smf-form .smf-item .smf-select-control__control:active,
+    .smf-form .smf-item .smf-select-control__control:focus,
+    .smf-form .smf-item .smf-select-control__control:focus-within,
+    .smf-form .smf-item .smf-select-control__control[aria-selected="true"] {
+      border-color: var(--_form-control-border-color-focus);
+    }
+    .smf-form .smf-item .smf-select-control__control > input,
+    .smf-form .smf-item .smf-select-control__control > textarea {
+      border: none;
+      outline: none;
+    }
+    .smf-form
+      .smf-item
+      .smf-select-control__control:focus
+      + .smf-select-control__toggle:before {
+      border-color: #3a87fd;
+    }
+    .smf-form
+      .smf-item
+      .smf-select-control__control:disabled
+      + .smf-select-control__toggle {
+      background-color: var(--_lightest-color-gray);
+    }
+    .smf-form .smf-item .smf-select-control__toggle {
+      background-color: var(--_color-white);
+      bottom: 0;
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 0;
+    }
+    .smf-form .smf-item .smf-select-control__toggle:before {
+      border-color: currentcolor;
+      border-style: solid;
+      border-width: 0 1px 1px 0;
+      content: "";
+      display: block;
+      height: 6px;
+      position: absolute;
+      right: calc(var(--_s-1) - 6px);
+      top: calc(50% - 4px);
+      transform: rotate(45deg);
+      width: 6px;
+    }
+  }
+  .smf-select-control__control {
+    color: inherit;
+  }
+</style>
+<style id="snow-monkey-forms-item-style-inline-css" type="text/css">
+  .smf-item label {
+    cursor: pointer;
+  }
+  .smf-item__description {
+    --_font-size-level: -1;
+    color: var(--_dark-color-gray);
+    font-size: var(--_font-size);
+    line-height: var(--_line-height);
+    margin-top: var(--_margin-2);
+  }
+</style>
+<style id="snow-monkey-forms-control-text-style-inline-css" type="text/css">
+  .smf-form .smf-item .smf-text-control__control {
+    --_border-radius: var(--_global--border-radius);
+    --_transition-duration: var(--_global--transition-duration);
+    --_transition-function-timing: var(--_global--transition-function-timing);
+    --_transition-delay: var(--_global--transition-delay);
+    background-color: var(--_color-white);
+    border: 1px solid var(--_form-control-border-color);
+    border-radius: var(--_border-radius);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.035);
+    max-width: 100%;
+    outline: 0;
+    padding: var(--_padding-2);
+    transition: border var(--_transition-duration)
+      var(--_transition-function-timing) var(--_transition-delay);
+  }
+  .smf-form .smf-item .smf-text-control__control:hover {
+    border-color: var(--_form-control-border-color-hover);
+  }
+  .smf-form .smf-item .smf-text-control__control:active,
+  .smf-form .smf-item .smf-text-control__control:focus,
+  .smf-form .smf-item .smf-text-control__control:focus-within,
+  .smf-form .smf-item .smf-text-control__control[aria-selected="true"] {
+    border-color: var(--_form-control-border-color-focus);
+  }
+  .smf-form .smf-item .smf-text-control__control > input,
+  .smf-form .smf-item .smf-text-control__control > textarea {
+    border: none;
+    outline: none;
+  }
+  .smf-form .smf-item .smf-text-control__control:disabled {
+    background-color: var(--_lightest-color-gray);
+  }
+  textarea.smf-form .smf-item .smf-text-control__control {
+    height: auto;
+    width: 100%;
+  }
+  .smf-text-control {
+    line-height: 1;
+  }
+</style>
+<style id="snow-monkey-forms-control-email-style-inline-css" type="text/css">
+  .smf-form .smf-item .smf-text-control__control {
+    --_border-radius: var(--_global--border-radius);
+    --_transition-duration: var(--_global--transition-duration);
+    --_transition-function-timing: var(--_global--transition-function-timing);
+    --_transition-delay: var(--_global--transition-delay);
+    background-color: var(--_color-white);
+    border: 1px solid var(--_form-control-border-color);
+    border-radius: var(--_border-radius);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.035);
+    max-width: 100%;
+    outline: 0;
+    padding: var(--_padding-2);
+    transition: border var(--_transition-duration)
+      var(--_transition-function-timing) var(--_transition-delay);
+  }
+  .smf-form .smf-item .smf-text-control__control:hover {
+    border-color: var(--_form-control-border-color-hover);
+  }
+  .smf-form .smf-item .smf-text-control__control:active,
+  .smf-form .smf-item .smf-text-control__control:focus,
+  .smf-form .smf-item .smf-text-control__control:focus-within,
+  .smf-form .smf-item .smf-text-control__control[aria-selected="true"] {
+    border-color: var(--_form-control-border-color-focus);
+  }
+  .smf-form .smf-item .smf-text-control__control > input,
+  .smf-form .smf-item .smf-text-control__control > textarea {
+    border: none;
+    outline: none;
+  }
+  .smf-form .smf-item .smf-text-control__control:disabled {
+    background-color: var(--_lightest-color-gray);
+  }
+  textarea.smf-form .smf-item .smf-text-control__control {
+    height: auto;
+    width: 100%;
+  }
+  .smf-text-control {
+    line-height: 1;
+  }
+</style>
+<style id="snow-monkey-forms-control-textarea-style-inline-css" type="text/css">
+  .smf-form .smf-item .smf-textarea-control__control {
+    --_border-radius: var(--_global--border-radius);
+    --_transition-duration: var(--_global--transition-duration);
+    --_transition-function-timing: var(--_global--transition-function-timing);
+    --_transition-delay: var(--_global--transition-delay);
+    background-color: var(--_color-white);
+    border: 1px solid var(--_form-control-border-color);
+    border-radius: var(--_border-radius);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.035);
+    display: block;
+    max-width: 100%;
+    outline: 0;
+    padding: var(--_padding-2);
+    transition: border var(--_transition-duration)
+      var(--_transition-function-timing) var(--_transition-delay);
+    width: 100%;
+  }
+  .smf-form .smf-item .smf-textarea-control__control:hover {
+    border-color: var(--_form-control-border-color-hover);
+  }
+  .smf-form .smf-item .smf-textarea-control__control:active,
+  .smf-form .smf-item .smf-textarea-control__control:focus,
+  .smf-form .smf-item .smf-textarea-control__control:focus-within,
+  .smf-form .smf-item .smf-textarea-control__control[aria-selected="true"] {
+    border-color: var(--_form-control-border-color-focus);
+  }
+  .smf-form .smf-item .smf-textarea-control__control > input,
+  .smf-form .smf-item .smf-textarea-control__control > textarea {
+    border: none;
+    outline: none;
+  }
+  .smf-form .smf-item .smf-textarea-control__control:disabled {
+    background-color: var(--_lightest-color-gray);
+  }
+  textarea.smf-form .smf-item .smf-textarea-control__control {
+    height: auto;
+    width: 100%;
+  }
+</style>
+<style
+  id="snow-monkey-forms-control-checkboxes-style-inline-css"
+  type="text/css"
+>
+  @media (min-width: 640px) {
+    .smf-form .smf-item .smf-checkboxes-control__control > .smf-label {
+      display: inline-block;
+      margin-right: var(--_margin-1);
+    }
+  }
+  .smf-form
+    .smf-item
+    .smf-checkboxes-control--horizontal
+    .smf-checkboxes-control__control
+    > .smf-label {
+    display: inline-block;
+  }
+  .smf-form
+    .smf-item
+    .smf-checkboxes-control--vertical
+    .smf-checkboxes-control__control
+    > .smf-label {
+    display: block;
+  }
+  .smf-form .smf-item .smf-checkbox-control {
+    align-items: center;
+    align-items: flex-start;
+    display: inline-flex;
+  }
+  @supports ((-webkit-appearance: none) or (appearance: none)) or
+    (-moz-appearance: none) {
+    .smf-form .smf-item .smf-checkbox-control__control {
+      --_border-radius: var(--_global--border-radius);
+      --_transition-duration: var(--_global--transition-duration);
+      --_transition-function-timing: var(--_global--transition-function-timing);
+      --_transition-delay: var(--_global--transition-delay);
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: var(--_color-white);
+      border: 1px solid var(--_form-control-border-color);
+      border-radius: var(--_border-radius);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.035);
+      cursor: pointer;
+      display: inline-block;
+      height: 16px;
+      outline: 0;
+      position: relative;
+      transition: border var(--_transition-duration)
+        var(--_transition-function-timing) var(--_transition-delay);
+      width: 16px;
+    }
+    .smf-form .smf-item .smf-checkbox-control__control:hover {
+      border-color: var(--_form-control-border-color-hover);
+    }
+    .smf-form .smf-item .smf-checkbox-control__control:active,
+    .smf-form .smf-item .smf-checkbox-control__control:focus,
+    .smf-form .smf-item .smf-checkbox-control__control:focus-within,
+    .smf-form .smf-item .smf-checkbox-control__control[aria-selected="true"] {
+      border-color: var(--_form-control-border-color-focus);
+    }
+    .smf-form .smf-item .smf-checkbox-control__control > input,
+    .smf-form .smf-item .smf-checkbox-control__control > textarea {
+      border: none;
+      outline: none;
+    }
+    .smf-form .smf-item .smf-checkbox-control__control:before {
+      border-color: var(--_color-white);
+      border-style: solid;
+      border-width: 0 2px 2px 0;
+      height: 8px;
+      left: calc(50% - 3px);
+      margin: 0 !important;
+      top: calc(50% - 5px);
+      transform: rotate(45deg);
+      visibility: hidden;
+      width: 6px;
+    }
+    .smf-form .smf-item .smf-checkbox-control__control:checked {
+      background-color: #3a87fd;
+      border-color: #3a87fd;
+    }
+    .smf-form .smf-item .smf-checkbox-control__control:checked:before {
+      content: "";
+      display: block;
+      position: absolute;
+      visibility: visible;
+    }
+    .smf-form .smf-item .smf-checkbox-control__control:disabled {
+      background-color: var(--_lightest-color-gray);
+    }
+    .smf-form .smf-item .smf-checkbox-control__control:disabled:before {
+      border-color: var(--_dark-color-gray);
+    }
+  }
+  .smf-form .smf-item .smf-checkbox-control__control {
+    flex: none;
+    margin-right: var(--_margin-2);
+    margin-top: calc(var(--_half-leading) * 1em);
+  }
+</style>
+<style id="snow-monkey-forms-control-file-style-inline-css" type="text/css">
+  .smf-form .smf-item .smf-file-control {
+    position: relative;
+  }
+  .smf-form .smf-item .smf-file-control__filename,
+  .smf-form .smf-item .smf-file-control__label {
+    display: none;
+  }
+  .smf-form .smf-item .smf-file-control > label {
+    position: relative;
+  }
+  @supports ((-webkit-appearance: none) or (appearance: none)) or
+    (-moz-appearance: none) {
+    .smf-form .smf-item .smf-file-control:before {
+      bottom: -3px;
+      content: "";
+      display: block;
+      left: -3px;
+      position: absolute;
+      right: -3px;
+      top: -3px;
+    }
+    .smf-form .smf-item .smf-file-control:active:before,
+    .smf-form .smf-item .smf-file-control:focus-within:before,
+    .smf-form .smf-item .smf-file-control:focus:before {
+      border: 1px solid var(--_form-control-border-color-focus);
+      border-radius: var(--_global--border-radius);
+    }
+    .smf-form .smf-item .smf-file-control > label {
+      align-items: center;
+      display: inline-flex;
+      flex-wrap: nowrap;
+    }
+    .smf-form .smf-item .smf-file-control > label > * {
+      flex: 0 0 auto;
+    }
+    .smf-form .smf-item .smf-file-control__control {
+      display: none;
+    }
+    .smf-form .smf-item .smf-file-control__label {
+      --_border-radius: var(--_global--border-radius);
+      --_transition-duration: var(--_global--transition-duration);
+      --_transition-function-timing: var(--_global--transition-function-timing);
+      --_transition-delay: var(--_global--transition-delay);
+      background-color: var(--_lighter-color-gray);
+      background-image: linear-gradient(
+        180deg,
+        #fff,
+        var(--_lighter-color-gray)
+      );
+      border: 1px solid var(--_form-control-border-color);
+      border-radius: var(--_border-radius);
+      border-radius: var(--_global--border-radius);
+      color: var(--_color-text);
+      cursor: pointer;
+      display: inline-block;
+      outline: 0;
+      padding: var(--_padding-2) var(--_padding-1);
+      text-decoration: none;
+      transition: border var(--_transition-duration)
+        var(--_transition-function-timing) var(--_transition-delay);
+    }
+    .smf-form .smf-item .smf-file-control__label:hover {
+      border-color: var(--_form-control-border-color-hover);
+    }
+    .smf-form .smf-item .smf-file-control__label:active,
+    .smf-form .smf-item .smf-file-control__label:focus,
+    .smf-form .smf-item .smf-file-control__label:focus-within,
+    .smf-form .smf-item .smf-file-control__label[aria-selected="true"] {
+      border-color: var(--_form-control-border-color-focus);
+    }
+    .smf-form .smf-item .smf-file-control__label > input,
+    .smf-form .smf-item .smf-file-control__label > textarea {
+      border: none;
+      outline: none;
+    }
+    .smf-form .smf-item .smf-file-control__filename {
+      display: inline-block;
+      margin-left: 1em;
+    }
+    .smf-form .smf-item .smf-file-control__value {
+      margin-top: 0.25em;
+    }
+  }
+</style>
+<style
+  id="snow-monkey-forms-control-radio-buttons-style-inline-css"
+  type="text/css"
+>
+  @media (min-width: 640px) {
+    .smf-form .smf-item .smf-radio-buttons-control__control > .smf-label {
+      display: inline-block;
+      margin-right: var(--_margin-1);
+    }
+  }
+  .smf-form
+    .smf-item
+    .smf-radio-buttons-control--horizontal
+    .smf-radio-buttons-control__control
+    > .smf-label {
+    display: inline-block;
+  }
+  .smf-form
+    .smf-item
+    .smf-radio-buttons-control--vertical
+    .smf-radio-buttons-control__control
+    > .smf-label {
+    display: block;
+  }
+  .smf-form .smf-item .smf-radio-button-control {
+    align-items: center;
+    align-items: flex-start;
+    display: inline-flex;
+  }
+  @supports ((-webkit-appearance: none) or (appearance: none)) or
+    (-moz-appearance: none) {
+    .smf-form .smf-item .smf-radio-button-control__control {
+      --_border-radius: var(--_global--border-radius);
+      --_transition-duration: var(--_global--transition-duration);
+      --_transition-function-timing: var(--_global--transition-function-timing);
+      --_transition-delay: var(--_global--transition-delay);
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: var(--_color-white);
+      border: 1px solid var(--_form-control-border-color);
+      border-radius: var(--_border-radius);
+      border-radius: 100%;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.035);
+      cursor: pointer;
+      display: inline-block;
+      height: 16px;
+      outline: 0;
+      position: relative;
+      transition: border var(--_transition-duration)
+        var(--_transition-function-timing) var(--_transition-delay);
+      width: 16px;
+    }
+    .smf-form .smf-item .smf-radio-button-control__control:hover {
+      border-color: var(--_form-control-border-color-hover);
+    }
+    .smf-form .smf-item .smf-radio-button-control__control:active,
+    .smf-form .smf-item .smf-radio-button-control__control:focus,
+    .smf-form .smf-item .smf-radio-button-control__control:focus-within,
+    .smf-form
+      .smf-item
+      .smf-radio-button-control__control[aria-selected="true"] {
+      border-color: var(--_form-control-border-color-focus);
+    }
+    .smf-form .smf-item .smf-radio-button-control__control > input,
+    .smf-form .smf-item .smf-radio-button-control__control > textarea {
+      border: none;
+      outline: none;
+    }
+    .smf-form .smf-item .smf-radio-button-control__control:before {
+      background-color: var(--_color-white);
+      border-radius: 100%;
+      height: 6px;
+      left: calc(50% - 3px);
+      margin: 0 !important;
+      overflow: hidden;
+      top: calc(50% - 3px);
+      visibility: hidden;
+      width: 6px;
+    }
+    .smf-form .smf-item .smf-radio-button-control__control:checked {
+      background-color: #3a87fd;
+      border-color: #3a87fd;
+    }
+    .smf-form .smf-item .smf-radio-button-control__control:checked:before {
+      content: "";
+      display: block;
+      position: absolute;
+      visibility: visible;
+    }
+    .smf-form .smf-item .smf-radio-button-control__control:disabled {
+      background-color: var(--_lightest-color-gray);
+    }
+    .smf-form .smf-item .smf-radio-button-control__control:disabled:before {
+      background-color: var(--_dark-color-gray);
+    }
+  }
+  .smf-form .smf-item .smf-radio-button-control__control {
+    flex: none;
+    margin-right: var(--_margin-2);
+    margin-top: calc(var(--_half-leading) * 1em);
+  }
+</style>
+<style id="snow-monkey-forms-control-tel-style-inline-css" type="text/css">
+  .smf-form .smf-item .smf-text-control__control {
+    --_border-radius: var(--_global--border-radius);
+    --_transition-duration: var(--_global--transition-duration);
+    --_transition-function-timing: var(--_global--transition-function-timing);
+    --_transition-delay: var(--_global--transition-delay);
+    background-color: var(--_color-white);
+    border: 1px solid var(--_form-control-border-color);
+    border-radius: var(--_border-radius);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.035);
+    max-width: 100%;
+    outline: 0;
+    padding: var(--_padding-2);
+    transition: border var(--_transition-duration)
+      var(--_transition-function-timing) var(--_transition-delay);
+  }
+  .smf-form .smf-item .smf-text-control__control:hover {
+    border-color: var(--_form-control-border-color-hover);
+  }
+  .smf-form .smf-item .smf-text-control__control:active,
+  .smf-form .smf-item .smf-text-control__control:focus,
+  .smf-form .smf-item .smf-text-control__control:focus-within,
+  .smf-form .smf-item .smf-text-control__control[aria-selected="true"] {
+    border-color: var(--_form-control-border-color-focus);
+  }
+  .smf-form .smf-item .smf-text-control__control > input,
+  .smf-form .smf-item .smf-text-control__control > textarea {
+    border: none;
+    outline: none;
+  }
+  .smf-form .smf-item .smf-text-control__control:disabled {
+    background-color: var(--_lightest-color-gray);
+  }
+  textarea.smf-form .smf-item .smf-text-control__control {
+    height: auto;
+    width: 100%;
+  }
+  .smf-text-control {
+    line-height: 1;
+  }
+</style>
+<style id="snow-monkey-forms-control-url-style-inline-css" type="text/css">
+  .smf-form .smf-item .smf-text-control__control {
+    --_border-radius: var(--_global--border-radius);
+    --_transition-duration: var(--_global--transition-duration);
+    --_transition-function-timing: var(--_global--transition-function-timing);
+    --_transition-delay: var(--_global--transition-delay);
+    background-color: var(--_color-white);
+    border: 1px solid var(--_form-control-border-color);
+    border-radius: var(--_border-radius);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.035);
+    max-width: 100%;
+    outline: 0;
+    padding: var(--_padding-2);
+    transition: border var(--_transition-duration)
+      var(--_transition-function-timing) var(--_transition-delay);
+  }
+  .smf-form .smf-item .smf-text-control__control:hover {
+    border-color: var(--_form-control-border-color-hover);
+  }
+  .smf-form .smf-item .smf-text-control__control:active,
+  .smf-form .smf-item .smf-text-control__control:focus,
+  .smf-form .smf-item .smf-text-control__control:focus-within,
+  .smf-form .smf-item .smf-text-control__control[aria-selected="true"] {
+    border-color: var(--_form-control-border-color-focus);
+  }
+  .smf-form .smf-item .smf-text-control__control > input,
+  .smf-form .smf-item .smf-text-control__control > textarea {
+    border: none;
+    outline: none;
+  }
+  .smf-form .smf-item .smf-text-control__control:disabled {
+    background-color: var(--_lightest-color-gray);
+  }
+  textarea.smf-form .smf-item .smf-text-control__control {
+    height: auto;
+    width: 100%;
+  }
+  .smf-text-control {
+    line-height: 1;
+  }
+</style>
+<link
+  rel="stylesheet"
+  id="snow-monkey-forms@fallback-css"
+  href="http://localhost:10064/wp-content/plugins/snow-monkey-forms/dist/css/fallback.css?ver=1701930147"
+  type="text/css"
+  media="all"
+/>
+<link
+  rel="stylesheet"
+  id="snow-monkey-forms-css"
+  href="http://localhost:10064/wp-content/plugins/snow-monkey-forms/dist/css/app.css?ver=1701930147"
+  type="text/css"
+  media="all"
+/>

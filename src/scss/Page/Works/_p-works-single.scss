@@ -1,0 +1,78 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.p-works-single {
+  margin: 5.5em auto 8em;
+  max-width: 868px;
+
+  @include s.media(md) {
+    /*PCのみ*/
+    margin-bottom: 20vmin;
+  }
+
+  &__title {
+    margin-bottom: 0.5em;
+    font-family: "Montserrat", "游ゴシック体", YuGothic, "游ゴシック Medium",
+      "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: left;
+    color: #000;
+    @include s.media(md) {
+      /*PCのみ*/
+      font-size: 2.3rem;
+    }
+  }
+
+  &__term {
+    @extend %en-font;
+    font-size: 1.4rem;
+    text-align: left;
+  }
+
+  &__contents {
+    margin-top: 4em;
+    figure {
+      margin-bottom: 7.5%;
+      //width: 100%;
+
+      @include s.media(md) {
+        /*PCのみ*/
+        margin-bottom: 8.5%;
+      }
+
+      // img {
+      //   width: 100%;
+      // }
+    }
+    .wp-block-gallery.has-nested-images
+      figure.wp-block-image:not(#individual-image),
+    .wp-block-gallery.has-nested-images.columns-1
+      figure.wp-block-image:not(#individual-image) {
+      margin-bottom: 7.5%;
+
+      @include s.media(md) {
+        /*PCのみ*/
+        margin-bottom: 8.5%;
+      }
+    }
+  }
+
+  &__name {
+    margin-bottom: 0.5em;
+    font-family: "Montserrat", "游ゴシック体", YuGothic, "游ゴシック Medium",
+      "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-align: left;
+    //color: #000;
+  }
+
+  &__textarea {
+    @extend %en-font;
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-align: left;
+  }
+}

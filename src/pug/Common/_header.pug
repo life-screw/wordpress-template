@@ -1,0 +1,104 @@
+//- 画像パス
+- const imgPathCommon = "./dist/img/common/"
+- const imgPath = "./dist/img/" +  pageID + "/"
+
+<!doctype html>
+<html lang="ja">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="format-detection" content="email=no,telephone=no,address=no">
+
+		<title>テンプレート</title>
+		<meta name="description" content="ディスクリプション">
+
+		<!-- ファビコン -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+		<!-- 共通CSS -->
+		<link rel="stylesheet" href="./dist/css/common.css">
+
+		<!-- Web font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+		<!-- 個別CSS -->
+		if pageID =='contact'
+			include ../Contact/_snow-monkey-form_style-head.html
+		link(rel="stylesheet" href="./dist/css/" + pageID + ".css").
+		//- link(rel="preload" href=imgPathCommon + "	home/fv_sp_truck.gif" as="image")
+
+		<!-- jQuery読み込み -->
+		<!-- !!!functions.phpで指定し直すこと！！！！！！！！！！！！！！ -->
+		script(src="dist/js/jquery-3.7.1.min.js" defer)
+
+		//- script(src="./dist/js/gsap.min.js" defer)
+		//- script(src="./dist/js/ScrollTrigger.min.js" defer)
+		script(src="./dist/js/common.js" defer)
+		if pageID =='home'
+			script(src="./dist/js/home.js" defer)
+		if pageID !== 'home'
+			script(src="./dist/js/page.js" defer)
+
+		//- style(type="text/css").
+		//-   .js-fadein{
+		//-     opacity:1 !important;
+		//-     animation:none !important;
+		//-   }
+		//-   .l-header--page {
+		//-       background-color: transparent;
+		//-   }
+	</head>
+
+	<body>
+		<!-- ▼▼▼ヘッダー▼▼▼ -->
+		//- header、ハンバーガーメニュー-------------
+		header.l-header
+
+			button.l-hum.js-hum(aria-label="メインメニュー" aria-controls="hum-button" aria-expanded="false")
+				span
+				span
+
+			nav#hum-button.l-humnav.js-humnav(aria-hidden="true")
+				.l-humnav__inner
+					ul.l-humnav-main
+						li.l-humnav-main__list
+							a(href="#section1" tabindex="-1") セクション 1
+						li.l-humnav-main__list
+							a(href="#section2" tabindex="-1") セクション 2
+						li.l-humnav-main__list
+							a(href="#section3" tabindex="-1") セクション 3
+
+					ul.l-sns.l-sns--humnav
+						li.l-sns__list
+							a(target="_blank" rel="noopener" href="https://twitter.com/▲▲▲▲Office")
+								img.twitter(src= imgPathCommon + "icon_twitter.svg" alt="Twitter" width="22" height="18")
+						li.l-sns__list
+							a(target="_blank" rel="noopener" href="https://www.facebook.com/▲▲▲▲Osaka")
+								img.facebook(src= imgPathCommon + "icon_facebook.svg" alt="facebook" width="11" height="22")
+						li.l-sns__list
+							a(target="_blank" rel="noopener" href="https://www.instagram.com/▲▲▲▲_design/")
+								img.instagram(src= imgPathCommon + "icon_instagram.svg" alt="instagram" width="19" height="19")
+
+		.c-overlay.js-overlay
+
+		//- //- ローディングアニメーション---------
+		//- if pageID=='home'
+		//- 	.p-loading.js-loading
+		//- 		.p-loading__contents
+		//- 			.p-loading__img
+		//- 				include ../../../dist/img/home/character01.svg
+		//- 			.p-loading__text
+		//- 				LOADING
+		//- 				span.period .
+		//- 				span.period .
+		//- 				span.period .
+		//- else
+		//-   .l-page-load.js-loading
+		<!-- ▲▲▲ヘッダー▲▲▲ -->
+
+		<!-- ▼▼▼コンテンツ▼▼▼ -->
+		<main class="l-main">
+			<!-- ▼▼▼ コンテンツの記述ここから ▼▼▼ -->

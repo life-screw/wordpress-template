@@ -1,0 +1,20 @@
+//header
+@use "./l-header";
+@use "./l-hum";
+@use "./l-humnav";
+@use "./l-sns";
+@use "./l-overray";
+@use "./l-fade";
+@use "./l-fix-instagram";
+
+//contents
+@use "./l-main";
+
+//footer
+// @use "./l-pagetop";
+@use "./l-footer";
+
+//下層ページ
+@use "./l-page-wrap";
+@use "./l-page-inner";
+// @use "./l-pageheader";

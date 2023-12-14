@@ -1,0 +1,65 @@
+@use "sass:math";
+
+/*-------------
+スマホ
+-------------*/
+//スマホデザイン横幅
+$spDesign: 375; //375px
+
+// functionを定義するscssファイル
+// remの値を出す 16で割って px指定と同じサイズにする
+@function rem($value) {
+	@return #{math.div($value, 10)}rem;
+}
+
+//パソコンcontainer横幅
+$pcContainer: 1000; //1000px
+
+// vw vh の値を出す（指定したい最大幅,物のサイズ）
+// モバイルで使う
+@function vw($width, $px) {
+	@return math.div($px, $width) * 100vw;
+}
+
+@function vh($height, $px) {
+	@return math.div($px, $height) * 100vh;
+}
+
+@function p($width, $px) {
+	@return math.div($px, $width) * 100%;
+}
+
+//line_height 行送り
+@function lh($fontSize, $lineHeight) {
+	@return math.div($lineHeight, $fontSize);
+}
+
+// letter-spacing トラッキング
+@function ls($letter-spacing) {
+	@return #{math.div($letter-spacing, 1000)}em;
+}
+
+$breakpoints: (
+	// s: 'only screen and (min-width:480px)',
+	// sm: 'only screen and (max-width:768px)',
+	//md: 'only screen and (max-width:768px)',
+	lg: "print, screen and (min-width:1100px)",
+	xl: "print, screen and (min-width:1400px)",
+	xxl: "only screen and (min-width:1600px)",
+	//PCの時のみ↓
+	llg: "print, screen and (min-width:1221px)",
+	//タブレットの時のみ↓
+	tbmax: "only screen and (min-width: 769px) and (max-width: 1101px)",
+	//スマホの時のみ↓
+	mdmax: 'only screen and (max-width:768px)',
+	//タブレット・pcの時のみ↓
+	md: 'print, screen and (min-width:769px)' //pcの時
+);
+
+/*英語フォント*/
+%en-font {
+	font-family: 'Montserrat', sans-serif;
+	font-display: optional;
+	letter-spacing: 0;
+	-webkit-font-smoothing: antialiased; //safariで太さを調整するため https://on-ze.com/archives/562
+}

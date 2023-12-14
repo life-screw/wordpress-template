@@ -1,0 +1,114 @@
+@use "../../Setting/" as s;
+
+.p-not-found {
+  // padding-top: s.vw(s.$spDesign, 27);
+
+  // @include s.media(md) {
+  //   padding-top: 68px;
+  // }
+
+  &__txt {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.69;
+
+    @include s.media(md) {
+      font-size: 2rem;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+  &-link {
+    $this: &;
+
+    margin: 3em auto 0;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    color: #fff;
+    border: 1px solid #282828;
+    background: #282828;
+    padding: 1em 0.5em;
+    text-align: center;
+    width: 24.8rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+
+    @include s.media(md) {
+      width: 27.6rem;
+      font-size: 1.7rem;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 0;
+      background-color: #fff;
+      opacity: 1;
+      transition: all 0.5s ease;
+      @include s.media(mdmax) {
+        /*スマホのみ*/
+        display: none;
+      }
+    }
+
+    a {
+      color: #fff;
+    }
+
+    &__wrap {
+      display: block;
+      height: 1.5em;
+      overflow: hidden;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      transition: all 0.3s ease;
+      transform: translateY(-1.5em);
+      @include s.media(mdmax) {
+        /*スマホのみ*/
+        transform: translateY(0);
+      }
+
+      &::before {
+        content: attr(data-text);
+        color: #282828;
+        @include s.media(mdmax) {
+          /*スマホのみ*/
+          display: none;
+        }
+      }
+    }
+
+    &:hover {
+      @include s.media(md) {
+        /*PCのみ*/
+        opacity: 1;
+        background-color: #ededed;
+
+        &::before {
+          height: 100%;
+          background-position: 0 0 !important;
+        }
+
+        a {
+          opacity: 1;
+        }
+
+        #{$this}__text {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}

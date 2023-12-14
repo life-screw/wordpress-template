@@ -1,0 +1,19 @@
+@use "sass:math";
+@use "../../Setting/"as s;
+
+.l-main {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  // padding-top: 60px;
+  // padding-bottom: s.vw(s.$spDesign, 60);
+
+  // @include s.media(md) {
+  //   padding-top: 7.25vw;
+  //   padding-bottom: 13.5rem;
+  // }
+
+  // @include s.media(xl) {
+  //   padding-top: 90px;
+  // }
+}

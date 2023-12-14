@@ -1,0 +1,45 @@
+@use "../../Setting/" as s;
+@use "sass:math";
+
+.p-contact {
+	margin-bottom: 6.5em * 2;
+
+	@include s.media(md) {
+		/*PCのみ*/
+		margin-bottom: 18vmin * 2;
+	}
+
+	&__text {
+		margin: 1.5em 0 4.5em;
+		font-size: 1.3rem;
+		font-weight: 500;
+
+		line-height: 2.08;
+		text-align: justify;
+
+		@include s.media(md) {
+			/*PCのみ*/
+			margin-bottom: 5em;
+			font-size: 1.4rem;
+			letter-spacing: 0.05em;
+		}
+	}
+
+	&__note {
+		margin: 1.5em 0 5em;
+		font-size: 1.3rem;
+		font-weight: 500;
+		text-decoration: underline;
+
+		line-height: 2.08;
+		text-align: justify;
+		color: #000;
+
+		@include s.media(md) {
+			/*PCのみ*/
+			margin-bottom: 10em;
+			font-size: 1.4rem;
+			letter-spacing: 0.05em;
+		}
+	}
+}

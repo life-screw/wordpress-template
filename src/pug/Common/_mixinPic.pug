@@ -1,0 +1,20 @@
+//- 参考サイト https://flex-box.net/mixin-webp/
+//- +webpImg("pictureにつけるクラス名", "ファイル名", "jpg", "alt文字", trueだとPCとSPを設置, "375", "600", "1280", "400")
+mixin picImg(className, imgName, extension, altName, smp, widthSp, heightSp, widthPc, heightPc)
+	if (smp === true)
+		picture(class = className)
+			source(
+				media="(min-width: 769px)",
+				srcset=imgPath + imgName + "_pc" + "." + extension,
+				width=widthPc,
+				height=heightPc
+			)
+			img(
+				src=imgPath + imgName + "_sp" + "." + extension,
+				width=widthSp,
+				height=heightSp,
+				alt=altName,
+				loading="lazy"
+			)
+	else
+		img(src=imgPath + imgName + "." + extension, width=widthSp, height=heightSp, alt=altName, loading="lazy")

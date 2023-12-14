@@ -1,0 +1,74 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.p-about {
+  max-width: 885px;
+  &__text {
+    margin: 1.5em 0 4.5em;
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    line-height: 2.08;
+    text-align: justify;
+
+    @include s.media(md) {
+      /*PCのみ*/
+      margin-bottom: 5em;
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+    }
+  }
+  &__table {
+    padding: 1.3em 0;
+    border-top: 0.7px solid var(--color-base);
+    text-align: left;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 2.31;
+    @include s.media(md) {
+      /*PCのみ*/
+      padding: 1.4em 0;
+      display: flex;
+      align-items: center;
+      font-size: 1.4rem;
+      line-height: 2.14;
+      letter-spacing: 0.05em;
+    }
+    &:last-child {
+      border-bottom: 0.7px solid var(--color-base);
+    }
+
+    &-th {
+      margin-bottom: 0.1em;
+      @include s.media(md) {
+        /*PCのみ*/
+        width: 17rem;
+      }
+    }
+    &-td {
+      @include s.media(md) {
+        /*PCのみ*/
+        width: calc(100% - 17rem);
+      }
+    }
+
+    li {
+      position: relative;
+      padding-left: 1em;
+      &::before {
+        content: "・";
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+    .inline-li li {
+      margin-right: 0.5em;
+      display: inline-block;
+      @include s.media(md) {
+        /*PCのみ*/
+        margin-right: 1em;
+      }
+    }
+  }
+}

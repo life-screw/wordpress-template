@@ -1,0 +1,17 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+/*
+ * # 	SVG ANIMATION
+ */
+.js-svg-anim {
+  &__path {
+    fill: none;
+    stroke: #fff; //本来のSVG画像の上に乗っかるマスクになる
+    stroke-width: 13;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 13;
+    will-change: stroke-dashoffset, stroke-dasharray;
+  }
+}

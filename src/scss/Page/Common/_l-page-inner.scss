@@ -1,0 +1,13 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.l-page-inner {
+  //margin: 6em auto 6.5em;
+  margin: 6em auto 30vh;
+
+  @include s.media(md) {
+    /*PCのみ*/
+    margin-top: 15vmin;
+    margin-bottom: 18vmin;
+  }
+}

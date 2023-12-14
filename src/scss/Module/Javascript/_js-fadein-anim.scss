@@ -1,0 +1,22 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+/*
+ * # フェードインのアニメーション
+ */
+.js-fadein-anim {
+  @include s.fadeinAnim;
+  transition-delay: 0.3s;
+  &.is-show {
+    @include s.fadeinAnimActive;
+  }
+
+  // クラスが隣り合っているときに、0.3sずつ遅らせて表示
+  // 隣り合っている要素が最大10個まで
+  // ×nth-of-type
+  @for $value from 2 through 12 {
+    &:nth-child(#{$value}) {
+      transition-delay: 0.3s * $value;
+    }
+  }
+}
