@@ -1,0 +1,77 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.p-qa {
+	$this: &;
+
+	&__question {
+		position: relative;
+		cursor: pointer;
+
+		&-main {
+			display: block;
+		}
+
+		&-toggle {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			display: flex;
+			align-items: center;
+			width: 2.3943661972vw;
+			height: 2.3943661972vw;
+
+			@include s.media(mdmax) {
+				//スマホの時のみ
+				width: 4.5945945946vw;
+				height: 4.5945945946vw;
+			}
+
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 0.2702702703vw;
+				background-color: #9c692d;
+
+				@include s.media(mdmax) {
+					//スマホの時のみ
+					height: 0.2702702703vw;
+				}
+			}
+
+			&::after {
+				transform: rotate(90deg);
+				transition-property: transform;
+				transition-duration: 200ms;
+				transition-timing-function: ease;
+			}
+		}
+	}
+
+	&__answer {
+		height: 0;
+		display: none;
+		transition: height 300ms;
+		overflow: hidden;
+		transition: height 300ms ease;
+
+		&-text {}
+
+	}
+
+	//開いているとき------------
+	&.is-active {
+		#{$this}__question-toggle {
+			&:after {
+				transform: rotate(0);
+			}
+		}
+
+		#{$this}__answer {
+			height: auto;
+			display: block;
+		}
+	}
+}

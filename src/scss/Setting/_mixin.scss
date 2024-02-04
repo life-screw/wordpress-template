@@ -1,4 +1,5 @@
-@use "./variable"as *;
+@use "./variable" as *;
+@use "sass:math";
 
 @mixin media($breakpoint) {
 	@media #{map-get($breakpoints,$breakpoint)} {
@@ -8,9 +9,31 @@
 }
 
 @mixin inner {
-	max-width: $pcContainer + px;
-	width: calc(100% - 10.6vw);
+	// max-width: 1000px;
+	width: calc(100% - 16.2vw);
 	margin: auto;
+	max-width: 1282px;
+}
+
+@mixin innerWide {
+	// max-width: 1000px;
+	width: calc(100% - 16.2vw);
+	margin: auto;
+	max-width: 1700px;
+}
+
+@mixin innerPage {
+	// max-width: 1000px;
+	width: calc(100% - 16.2vw);
+	margin: auto;
+	max-width: 1104px;
+}
+
+@mixin innerPageSmall {
+	// max-width: 1000px;
+	width: calc(100% - vw($spDesign, 18)*2);
+	margin: auto;
+	max-width: 1104px;
 }
 
 @mixin flexCenter {
@@ -18,3 +41,43 @@
 	align-items: center;
 	justify-content: center;
 }
+
+//フォント一括設定_sp（数値はXDの値を入れる）----------------
+@mixin f_sp_around($pixels, $height: false, $weight: false, $spacing: false) {
+	font-size: math.div($pixels, $spDesign) * 100vw;
+
+	@if $weight {
+		font-weight: $weight;
+	}
+
+	@if $height {
+		line-height: $height / $pixels;
+	}
+
+	@if $spacing {
+		letter-spacing: ($spacing / 1000) * 1em;
+	}
+}
+
+// 呼び出し例
+// ＠include f_sp_around(フォントサイズ, 行送り , 太さ, トラッキング)
+
+//フォント一括設定_PC（数値はXDの値を入れる）----------------
+@mixin f_pc_around($pixels, $height: false, $weight: false, $spacing: false) {
+	font-size: $pixels * 0.1rem;
+
+	@if $weight {
+		font-weight: $weight;
+	}
+
+	@if $height {
+		line-height: $height / $pixels;
+	}
+
+	@if $spacing {
+		letter-spacing: ($spacing / 1000) * 1em;
+	}
+}
+
+// 呼び出し例
+// ＠include f_pc_around(フォントサイズ, 行送り , 太さ, トラッキング)

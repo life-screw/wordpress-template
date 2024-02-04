@@ -28,7 +28,7 @@
 	<?php
 	/*WordPressオブジェクトの作成*/
 	$args1     = array(
-		'post_type'      => 'post',// カスタム投稿ならカスタム投稿のスラッグを入れる
+		'post_type'      => 'post', // カスタム投稿ならカスタム投稿のスラッグを入れる.
 		'posts_per_page' => 1,
 		'order'          => 'DESC',  // 'ASC' - 最低から最高に昇順 values (1, 2, 3; a, b, c).
 		'orderby'        => 'date',
@@ -48,7 +48,7 @@
 							<?php the_post_thumbnail( 'thumbnail' ); ?>
 								<?php else : ?>
 								<img
-									src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/img/common/topics_thumbnail.png"
+									src="<?php echo esc_url( get_template_directory_uri() ); ?>/dist/img/common/news_thumbnail.png"
 									alt=""
 									width="630"
 									height="400"
@@ -67,7 +67,7 @@
 	<?php wp_reset_postdata();// ループの条件をリセット. ?>
 
 <!-- instagram-feed埋め込み（PHPコードの例） -->
-<section class="p-instagram l-inner">
+<section class="p-instagram c-inner">
 	<h2 class="c-sec-title__title u-upper js-fadein__inner">Instagram</h2>
 	</div>
 	<div class="js-fadein">

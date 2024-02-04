@@ -66,17 +66,20 @@ if ( ! is_admin() ) {
 			$src = 'news';
 		} elseif ( is_page() ) {
 			global $wp_query; // ループ外なので、オブジェクトを取得.
-			$post_obj = $wp_query->get_queried_object();
-			$slug     = $post_obj->post_name;  // 投稿や固定ページのスラッグ.
-			switch ( $slug ) {
-				case 'contact':
-				case 'thanks':
-					$src = 'contact';
-					break;
-
-				default:
-					$src = $slug;
-					break;
+			// 親ページがある時の条件分岐.
+			$parent_page = $wp_query->post->post_parent; // 親ページのIDを取得.
+			// 'product' ページを取得し、存在するか確認.
+			$product_page = get_page_by_path( 'product' );
+			if ( $product_page && $product_page->ID === $parent_page ) {
+				$src = 'product';
+			} else {
+				$post_obj = $wp_query->get_queried_object();
+				$slug     = $post_obj->post_name;  // 投稿や固定ページのスラッグ.
+				switch ( $slug ) {
+					default:
+						$src = $slug;
+						break;
+				}
 			}
 		} elseif ( is_404() ) {
 			$src = 'not-found';

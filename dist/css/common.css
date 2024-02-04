@@ -1,5 +1,62 @@
 @charset "UTF-8";
-a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, iframe, img, ins, kbd, label, legend, li, object, ol, p, pre, q, s, samp, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, tr, tt, ul, var {
+a,
+abbr,
+acronym,
+address,
+applet,
+big,
+blockquote,
+body,
+caption,
+cite,
+code,
+dd,
+del,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+font,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+small,
+span,
+strike,
+strong,
+sub,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+tt,
+ul,
+var {
   margin: 0;
   padding: 0;
   border: 0;
@@ -15,7 +72,11 @@ a, abbr, acronym, address, applet, big, blockquote, body, caption, cite, code, d
   outline: 0;
 }
 
-a, a:active, a:hover, a:link, a:visited {
+a,
+a:active,
+a:hover,
+a:link,
+a:visited {
   text-decoration: none;
 }
 
@@ -24,21 +85,27 @@ table {
   border-spacing: 0;
 }
 
-td, th {
+td,
+th {
   text-align: left;
   font-weight: normal;
 }
 
-iframe, img {
+iframe,
+img {
   border: none;
   text-decoration: none;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font-size: 100%;
   font-family: inherit;
   -webkit-appearance: none;
@@ -101,11 +168,13 @@ a:focus {
   outline: none;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none outside none;
 }
 
-ol.link, ul.link {
+ol.link,
+ul.link {
   list-style: outside none none;
 }
 
@@ -122,13 +191,8 @@ main {
   --color-base: #707070;
   --font-mincho: "Shippori Mincho B1", "Yu Mincho", "游明朝体", serif;
   --font-serif: "Cormorant Infant", serif;
-  --font-gothic: "Roboto", "游ゴシック体",
-  	YuGothic,
-  	"游ゴシック Medium",
-  	"Yu Gothic Medium",
-  	"游ゴシック",
-  	"Yu Gothic",
-  	sans-serif;
+  --font-gothic: "Roboto", "游ゴシック体", YuGothic, "游ゴシック Medium",
+    "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
 }
 
 html {
@@ -143,7 +207,7 @@ html {
 }
 
 body {
-  background-color: #EDEDED;
+  background-color: #ededed;
   color: var(--color-base);
   font-family: var(--font-gothic);
   font-size: 1rem;
@@ -152,7 +216,7 @@ body {
   text-align: center;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "palt";
-          font-feature-settings: "palt";
+  font-feature-settings: "palt";
   -webkit-font-smoothing: antialiased;
 }
 
@@ -172,7 +236,13 @@ a:hover {
 スマホ
 -------------*/
 /*英語フォント*/
-.l-footer__contact a, .l-footer__message, .l-footer__copyright, .l-humnav-main__list > a, .l-humnav-contact a, .c-view-more a, .c-sec-title__title {
+.l-footer__contact a,
+.l-footer__message,
+.l-footer__copyright,
+.l-humnav-main__list > a,
+.l-humnav-contact a,
+.c-view-more a,
+.c-sec-title__title {
   font-family: "Montserrat", sans-serif;
   font-display: optional;
   letter-spacing: 0;
@@ -348,73 +418,73 @@ a:hover {
 @-webkit-keyframes viewMoreText {
   0% {
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
   49% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
   50% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
   to {
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
 }
 @keyframes viewMoreText {
   0% {
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
   49% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
   50% {
     -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    transform: translateY(100%);
   }
   to {
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
 }
 @-webkit-keyframes viewMoreLine {
   0% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   49% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
   50% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
   to {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
 }
 @keyframes viewMoreLine {
   0% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   49% {
     -webkit-transform: translateX(100%);
-            transform: translateX(100%);
+    transform: translateX(100%);
   }
   50% {
     -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
   }
   to {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
 }
 .c-sec-title {
@@ -434,7 +504,7 @@ a:hover {
   line-height: 1.3;
   color: #000;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .c-sec-title__number {
     /*PCのみ*/
     font-size: 1.5rem;
@@ -447,7 +517,7 @@ a:hover {
   background: var(--color-base);
   position: absolute;
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   left: 0;
   top: 0;
 }
@@ -457,7 +527,7 @@ a:hover {
   letter-spacing: 0.05em;
   color: #000;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .c-sec-title__title {
     /*PCのみ*/
     font-size: 3rem;
@@ -474,7 +544,7 @@ a:hover {
   letter-spacing: 0.1em;
   text-align: left;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .c-sec-subtitle {
     /*PCのみ*/
     font-size: 2rem;
@@ -490,8 +560,8 @@ a:hover {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .c-view-more__wrap:after {
   margin-left: 0.6em;
@@ -501,7 +571,7 @@ a:hover {
   height: 1px;
   background: #000;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .c-view-more__wrap:after {
     /*PCのみ*/
     width: 3.9rem;
@@ -514,7 +584,7 @@ a:hover {
 }
 .c-view-more__text {
   -webkit-transform: translateY(0);
-          transform: translateY(0);
+  transform: translateY(0);
   line-height: 1;
 }
 .c-view-more a {
@@ -529,13 +599,13 @@ a:hover {
 }
 .c-view-more a:hover .c-view-more__inner {
   -webkit-animation: viewMoreText 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-          animation: viewMoreText 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: viewMoreText 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 .c-view-more a:hover .c-view-more__wrap:after {
   -webkit-animation: viewMoreLine 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-          animation: viewMoreLine 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: viewMoreLine 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .c-figure-hover {
@@ -553,7 +623,7 @@ a:hover {
   -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .c-figure-hover:hover {
     /*PCのみ*/
     opacity: 1;
@@ -567,7 +637,7 @@ a:hover {
   margin: 6em auto 0;
   text-align: left;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .c-cat-pagelink {
     /*PCのみ*/
     margin: 0 0 0.5em 13%;
@@ -578,8 +648,8 @@ a:hover {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 1.4rem;
   font-weight: 500;
 }
@@ -592,7 +662,8 @@ a:hover {
   display: none;
 }
 .c-cat-pagelink li a {
-  font-family: "Montserrat", "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+  font-family: "Montserrat", "游ゴシック体", YuGothic, "游ゴシック Medium",
+    "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
   display: block;
   width: 100%;
   padding: 0.3em 0;
@@ -612,57 +683,57 @@ a:hover {
 }
 .l-page-load.is-show {
   -webkit-animation-name: loadingBg;
-          animation-name: loadingBg;
+  animation-name: loadingBg;
   -webkit-animation-duration: 0.25s;
-          animation-duration: 0.25s;
+  animation-duration: 0.25s;
   -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
+  animation-iteration-count: 1;
   -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
 
-.l-inner {
+.c-inner {
   max-width: 1000px;
   width: calc(100% - 10.6vw);
   margin: auto;
 }
 
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-page-listwrap {
     /*PCのみ*/
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
   }
 }
 
 .u-fitcover {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-family: "object-fit: cover;";
   width: 100%;
   height: 100%;
 }
 .u-fitcover img {
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   font-family: "object-fit: cover;";
   width: 100%;
   height: 100%;
 }
 
 /*PCのみ*/
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
   .u-only-pc {
     display: none !important;
   }
 }
 
 /*スマホのみ*/
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .u-only-sp {
     display: none !important;
   }
@@ -678,7 +749,7 @@ a:hover {
 .js-fadein {
   overflow: hidden;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 60%);
-          clip-path: polygon(0 0, 100% 0, 100% 0, 0 60%);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 60%);
   -webkit-transition: -webkit-clip-path 1s ease-out;
   transition: -webkit-clip-path 1s ease-out;
   transition: clip-path 1s ease-out;
@@ -688,7 +759,7 @@ a:hover {
 }
 .js-fadein__inner {
   -webkit-transform: translateY(100%);
-          transform: translateY(100%);
+  transform: translateY(100%);
   opacity: 0;
   -webkit-transition: -webkit-transition 0.75s ease-out;
   transition: -webkit-transition 0.75s ease-out;
@@ -698,13 +769,13 @@ a:hover {
 }
 .js-fadein.is-show {
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
   opacity: 1;
 }
 .js-fadein.is-show .js-fadein__inner {
   opacity: 1;
   -webkit-transform: translateY(0%);
-          transform: translateY(0%);
+  transform: translateY(0%);
 }
 
 .l-header {
@@ -715,13 +786,13 @@ a:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   z-index: 1000;
   -webkit-transition: background 0.5s ease;
   transition: background 0.5s ease;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-header {
     height: 7.25vw;
   }
@@ -736,12 +807,12 @@ a:hover {
   width: 77px;
   height: 62px;
   -webkit-transform: translate(0, 0);
-          transform: translate(0, 0);
+  transform: translate(0, 0);
   -webkit-transition: all 0.05s;
   transition: all 0.05s;
   cursor: pointer;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-hum {
     /*PCのみ*/
     right: 20px;
@@ -760,7 +831,7 @@ a:hover {
   transition: transform 0.05s;
   transition: transform 0.05s, -webkit-transform 0.05s;
   -webkit-transform: translateX(85%);
-          transform: translateX(85%);
+  transform: translateX(85%);
 }
 .l-hum span:nth-child(1) {
   bottom: 26px;
@@ -773,11 +844,11 @@ a:hover {
 }
 .l-hum.is-active span:nth-child(1) {
   -webkit-transform: translate(85%, 8px) rotate(-45deg);
-          transform: translate(85%, 8px) rotate(-45deg);
+  transform: translate(85%, 8px) rotate(-45deg);
 }
 .l-hum.is-active span:nth-child(2) {
   -webkit-transform: translate(85%, 0px) rotate(45deg);
-          transform: translate(85%, 0px) rotate(45deg);
+  transform: translate(85%, 0px) rotate(45deg);
 }
 .l-hum.is-footer span {
   background-color: #fff;
@@ -787,8 +858,8 @@ a:hover {
 .l-humnav {
   display: none;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding-top: 72px;
   z-index: 999;
   width: 100%;
@@ -800,7 +871,7 @@ a:hover {
   overflow-y: auto;
   text-align: right;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-humnav {
     /*PCのみ*/
     padding-top: calc(68px + 5vh);
@@ -811,7 +882,7 @@ a:hover {
   padding: 0 27px 120px;
   opacity: 0;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-humnav__inner {
     /*PCのみ*/
     padding-right: 82px;
@@ -823,15 +894,15 @@ a:hover {
 }
 .l-humnav.is-active .l-humnav__inner {
   -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
+  animation-delay: 0.2s;
   -webkit-animation-name: fadeIn;
-          animation-name: fadeIn;
+  animation-name: fadeIn;
   -webkit-animation-duration: 0.3s;
-          animation-duration: 0.3s;
+  animation-duration: 0.3s;
   -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
+  animation-iteration-count: 1;
   -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
 
 .l-humnav-main__list > a {
@@ -842,7 +913,7 @@ a:hover {
   padding: 0.8em 0;
   color: #fff;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-humnav-main__list > a {
     /*PCのみ*/
     font-size: 2.1rem;
@@ -865,7 +936,7 @@ a:hover {
 }
 .l-humnav-main__list > a .text {
   -webkit-transform: translateY(0);
-          transform: translateY(0);
+  transform: translateY(0);
   line-height: 1;
 }
 .l-humnav-main__list > a:hover {
@@ -873,9 +944,9 @@ a:hover {
 }
 .l-humnav-main__list > a:hover .inner {
   -webkit-animation: viewMoreText 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-          animation: viewMoreText 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  animation: viewMoreText 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 
 .l-humnav-contact {
@@ -891,7 +962,7 @@ a:hover {
   color: #fff;
   letter-spacing: 0.05em;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-humnav-contact a {
     /*PCのみ*/
     font-size: 2rem;
@@ -906,8 +977,8 @@ a:hover {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
 }
 .l-sns__list {
   padding: 1.5em 1em;
@@ -915,13 +986,13 @@ a:hover {
 .l-sns--humnav {
   margin-right: -8px;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-sns--footer .twitter {
     /*PCのみ*/
     width: 29px;
   }
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-sns--footer .facebook {
     /*PCのみ*/
     width: 15px;
@@ -941,7 +1012,7 @@ a:hover {
   right: 0;
   -webkit-transition: width ease-out 0.3s;
   transition: width ease-out 0.3s;
-  background-color: #5A5A5A;
+  background-color: #5a5a5a;
 }
 .l-overray.is-active {
   width: 100%;
@@ -975,7 +1046,7 @@ a:hover {
   top: 50%;
   right: 20px;
   -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   -webkit-transition: all 0.05s;
   transition: all 0.05s;
 }
@@ -994,11 +1065,11 @@ a:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background-color: #282828;
   color: #fff;
   overflow: hidden;
@@ -1017,7 +1088,7 @@ a:hover {
   width: 23.092rem;
   font-size: 2rem;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-footer__contact a {
     /*PCのみ*/
     margin: 13rem auto 10rem;
@@ -1048,20 +1119,20 @@ a:hover {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   line-height: 1.5;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   -webkit-transform: translateY(-1.5em);
-          transform: translateY(-1.5em);
+  transform: translateY(-1.5em);
   letter-spacing: 0.08em;
 }
 .l-footer__contact a .text::before {
   content: attr(data-text);
   color: #000;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-footer__contact a:hover {
     /*PCのみ*/
     opacity: 1;
@@ -1073,21 +1144,21 @@ a:hover {
   }
   .l-footer__contact a:hover .text {
     -webkit-transform: translateY(0);
-            transform: translateY(0);
+    transform: translateY(0);
   }
 }
 .l-footer__message {
   font-size: 1.1rem;
   letter-spacing: 0.4em;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-footer__message {
     /*PCのみ*/
     letter-spacing: 0.43em;
     padding-left: 0.8em;
   }
 }
-@media print, screen and (min-width:1100px) {
+@media print, screen and (min-width: 1100px) {
   .l-footer-info {
     /*PCのみ*/
     margin: 3.5rem auto 5rem;
@@ -1095,11 +1166,11 @@ a:hover {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 }
 .l-footer-info__logo {
@@ -1112,13 +1183,13 @@ a:hover {
 .l-footer-info__logo img {
   width: 100%;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-footer-info__logo {
     /*PCのみ*/
     width: 18.32rem;
   }
 }
-@media print, screen and (min-width:1100px) {
+@media print, screen and (min-width: 1100px) {
   .l-footer-info__logo {
     display: inline-block;
     margin: 0;
@@ -1132,22 +1203,22 @@ a:hover {
   line-height: 1.67;
   text-align: left;
 }
-@media print, screen and (min-width:1100px) {
+@media print, screen and (min-width: 1100px) {
   .l-footer-info__address {
     /*PCのみ*/
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     margin: 0.5em 0 0 1em;
   }
 }
-@media print, screen and (min-width:1100px) {
+@media print, screen and (min-width: 1100px) {
   .l-footer-info__address p {
     /*PCのみ*/
     margin-left: 2.5em;
@@ -1160,7 +1231,7 @@ a:hover {
   margin: 0.8em auto 1.5em;
   font-size: 1.2rem;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-footer__copyright {
     /*PCのみ*/
     margin: 4em auto 3.5em;
@@ -1170,7 +1241,7 @@ a:hover {
 .l-page-wrap {
   margin-top: 15.5em;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-page-wrap {
     /*PCのみ*/
     margin-top: 24vmin;
@@ -1180,7 +1251,7 @@ a:hover {
 .l-page-inner {
   margin: 6em auto 30vh;
 }
-@media print, screen and (min-width:769px) {
+@media print, screen and (min-width: 769px) {
   .l-page-inner {
     /*PCのみ*/
     margin-top: 15vmin;

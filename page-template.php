@@ -1,8 +1,9 @@
 <?php
 /**
- * Page
- *
- * 固定ページ（お問い合わせ）
+ * Template Name: 管理画面でテンプレート設定
+ * Template Post Type:page
+ * 
+ * 固定ページ（管理画面でテンプレート設定）
  *
  * @category   Components
  * @package    WordPress
@@ -15,10 +16,6 @@
 
 ?>
 <?php get_header(); ?>
-
-
-	<div class="p-form">
-		
 
 		<!-- 管理画面の内容を読み込むテンプレート -->
 		<?php
@@ -36,8 +33,5 @@
 		endif;
 		?>
 
-
-
-	</div>
 
 <?php get_footer(); ?>

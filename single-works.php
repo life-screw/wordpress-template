@@ -21,14 +21,9 @@ if ( have_posts() ) :
 		the_post();
 		?>
 
-<article class="p-works l-page-wrap l-inner">
-	<div class="c-sec-title p-home-philosophy__title js-fadein">
-	<p class="c-sec-title__title u-upper js-fadein__inner"><a href="<?php echo esc_url( home_url( '/' ) ); ?>works">WORKS</a></p>
-	</div>
 
-	<div class="p-works-single">
-	<h1 class="p-works-single__title js-fadein"><span class="js-fadein__inner"><?php the_title(); ?></span></h1>
 		<?php
+		// タクソノミー（カスタム投稿タイプ）の取得・出力.
 		$taxonomys = get_the_terms( $post->ID, 'works-category' );
 		if ( $taxonomys ) :
       		// phpcs:ignore WordPress.WP.GlobalVariablesOverride
@@ -37,11 +32,11 @@ if ( have_posts() ) :
 			}
 		endif;
 		?>
-	<div class="p-works-single__contents">
-			<?php the_content(); ?>
-	</div>
+
+
 
 		<?php
+		// ACFカスタムフィールドの取得・出力.
 		$works_part = get_field( 'works_part' );
 		$works_name = get_field( 'works_name' );
 		if ( $works_name ) {
@@ -54,8 +49,9 @@ if ( have_posts() ) :
 			echo '<p class="p-works-single__textarea">' . esc_textarea( $works_textarea ) . '</p>';
 		}
 		?>
-	</div>
 
+
+	<!--ページャー（サムネイル付き）の設置例-->
 	<div class="p-works-pager">
 			<?php
 			$prev_post = get_previous_post();
@@ -104,14 +100,14 @@ if ( have_posts() ) :
 				</a>
 			</div>
 		<?php } ?>
-	<p class="p-works-pager__back">
-		<a class="u-upper" href="<?php echo esc_url( home_url( '/' ) ); ?>works">
-			<span class="wrap"><span class="inner"><span class="text">All WORKS</span></span></span>
-		</a>
-	</p>
+		<p class="p-works-pager__back">
+			<a class="u-upper" href="<?php echo esc_url( home_url( '/' ) ); ?>works">
+				<span class="wrap"><span class="inner"><span class="text">All WORKS</span></span></span>
+			</a>
+		</p>
 	</div>
+	
 
-	</article>
 
 	<?php endwhile; ?>
 <?php endif; ?>

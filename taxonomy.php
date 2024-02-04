@@ -17,7 +17,7 @@
 
 <?php get_header(); ?>
 
-	<article class="p-works l-page-wrap l-inner">
+	<article class="p-works l-page-wrap c-inner">
 		<div class="l-page-listwrap">
 			<div class="c-sec-title p-home-philosophy__title js-fadein">
 				<h1 class="c-sec-title__title u-upper js-fadein__inner"><a href="<?php echo esc_url( home_url( '/' ) ); ?>works">WORKS</a></h1>

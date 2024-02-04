@@ -1,69 +1,70 @@
 @use "sass:math";
-@use "../../Setting/"as s;
+@use "../../Setting/" as s;
 
 .l-header {
-  position: fixed;
-  left: 0;
-  top: 0;
-  display: flex;
-  //align-items: center;
-  justify-content: space-between;
-  // width: 100vw;
-  // width: 100%;
-  // height: 60px;
-  z-index: 1000;
-  //背景色をふわっと出す
-  transition: background 0.5s ease;
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: flex;
+	//align-items: center;
+	justify-content: space-between;
+	// width: 100vw;
+	// width: 100%;
+	// height: 60px;
+	z-index: 1000;
+	//背景色をふわっと出す
+	transition: background 0.5s ease;
 
-  // @include s.media(mdmax) {
-  //   /*スマホのみ*/
-  //   overflow: hidden;
-  // }
+	// @include s.media(mdmax) {
+	//   /*スマホのみ*/
+	//   overflow: hidden;
+	// }
 
-  @include s.media(md) {
-    //height: 90px;
-    height: 7.25vw;
-  }
+	@include s.media(md) {
+		//height: 90px;
+		height: 7.25vw;
+	}
 
-  // @include s.media(xl) {
-  //   height: 90px;
-  // }
+	// @include s.media(xl) {
+	//   height: 90px;
+	// }
 
-  // &--page {
-  //   background-color: #fff;
-  // }
+	// &--page {
+	//   background-color: #fff;
+	// }
 
-  // &__logo {
-  //   width: 183px;
-  //   padding-top: 22px;
-  //   padding-left: 20px;
+	&__logo {
+		width: 183px;
+		padding-top: 22px;
+		padding-left: 20px;
+		box-sizing: content-box;
 
-  //   //padding-bottom: s.p(255, 17);
-  //   //padding-left: s.p(255, 20);
-  //   @include s.media(md) {
-  //     // max-width: 239px;
-  //     // width: 100%;
-  //     display: flex;
-  //     align-items: flex-end;
-  //     width: 18.597222vw;
-  //     padding-left: 2.4vw;
-  //     padding-bottom: 0.7vw;
-  //   }
+		//padding-bottom: s.p(255, 17);
+		//padding-left: s.p(255, 20);
+		@include s.media(md) {
+			// max-width: 239px;
+			// width: 100%;
+			display: flex;
+			align-items: flex-end;
+			width: 18.597222vw;
+			padding-left: 2.4vw;
+			padding-bottom: 0.7vw;
+		}
 
-  //   @include s.media(xl) {
-  //     padding-left: s.vw(1440, 98);
-  //     max-width: 239px;
-  //     width: 14%;
-  //     box-sizing: content-box;
-  //   }
+		@include s.media(xl) {
+			padding-left: s.vw(1440, 98);
+			max-width: 239px;
+			width: 14%;
+			box-sizing: content-box;
+		}
 
-  //   a {
-  //     display: block;
-  //   }
-  // }
+		a {
+			display: block;
+		}
+	}
 
-  //スクロールすると、headerの背景がつく
-  // &.js-header {
-  //   background: #fff;
-  // }
+	//スクロールすると、headerの背景がつく
+	// &.js-header {
+	//   background: #fff;
+	// }
 }

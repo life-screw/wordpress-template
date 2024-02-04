@@ -6,3 +6,7 @@ loadingAnimPage();
 // スクロールするとフェードインする
 import { scrollFadeIn } from "./parts/scrollFadeIn";
 scrollFadeIn();
+
+// ページ内リンクのスムーススクロール
+import { clickSmoothScroll } from "./parts/clickSmoothScroll";
+clickSmoothScroll();

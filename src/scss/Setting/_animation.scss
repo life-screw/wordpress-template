@@ -1,86 +1,11 @@
-//ローディングアニメーションのピリオドの点滅
-@keyframes loadingPeriod01 {
+// ハンバーガーメニューのアニメーション-------
+@keyframes fadeIn {
 	0% {
 		opacity: 0;
 	}
 
-	20% {
-		opacity: 0;
-	}
-
-	20.1% {
-		opacity: 1;
-	}
-
-	99.9% {
-		opacity: 1;
-	}
-
 	100% {
-		opacity: 0;
-	}
-}
-
-@keyframes loadingPeriod02 {
-	0% {
-		opacity: 0;
-	}
-
-	40% {
-		opacity: 0;
-	}
-
-	40.1% {
 		opacity: 1;
-	}
-
-	99.9% {
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 0;
-	}
-}
-
-@keyframes loadingPeriod03 {
-	0% {
-		opacity: 0;
-	}
-
-	60% {
-		opacity: 0;
-	}
-
-	60.1% {
-		opacity: 1;
-	}
-
-	99.9% {
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 0;
-	}
-}
-
-//ローディングアニメーションのキャラクターのアニメーション
-@keyframes jumpTop {
-
-	0%,
-	10%,
-	20% {
-		// bottom: 0;
-		transform: translateY(0);
-		// transform: scaleY(1);
-	}
-
-	6%,
-	16% {
-		// bottom: 25px;
-		transform: translateY(-25px);
-		// transform: scaleY(0.9);
 	}
 }
 
@@ -118,38 +43,6 @@
 			opacity: 0;
 			transition: opacity 0.2s ease-in-out 0.1s;
 		}
-	}
-}
-
-//ATHLETEの文字アニメーション=============
-@keyframes slide01 {
-	0% {
-		transform: translateX(100%);
-	}
-
-	100% {
-		transform: translateX(-100%);
-	}
-}
-
-@keyframes slide02 {
-	0% {
-		transform: translateX(0);
-	}
-
-	100% {
-		transform: translateX(-200%);
-	}
-}
-
-//商品スライド参考================
-@keyframes infinitySlide {
-	0% {
-		transform: translateX(0);
-	}
-
-	100% {
-		transform: translateX(-100%);
 	}
 }
 
@@ -270,70 +163,5 @@ $line-height-abs: 100%;
 
 	100% {
 		background-position: $line-height 0;
-	}
-}
-
-// @keyframes fadeInUp {
-//   from {
-//     opacity: 0;
-//     transform: translateY(20px);
-//   }
-
-//   to {
-//     opacity: 1;
-//     transform: none;
-//   }
-// }
-
-/*トップページ　最初の文字のアニメーション*/
-// @keyframes fadeUpAnime {
-//   from {
-//     opacity: 0;
-//     transform: translateY(20px);
-//   }
-
-//   to {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// }
-
-// @keyframes jsWidth {
-//   from {
-//     width: 100%;
-//   }
-
-//   to {
-//     width: 50%;
-//   }
-// }
-
-.is-fadeInUp {
-	opacity: 0;
-
-	&.js-loadanim {
-		transition: 1s;
-		animation-name: fadeUpAnime;
-		//animation-duration: 1s;
-		animation-duration: 1.5s;
-		animation-fill-mode: forwards;
-
-		//animation-delay: 0.5s;
-		&.is-fadeInUp {
-			&--01 {
-				//animation-delay: 0.5s;
-				animation-delay: 0.1s;
-			}
-
-			&--02 {
-				//animation-delay: 1s;
-				animation-delay: 1.6s;
-			}
-
-			&--03 {
-				//animation-delay: 1.5s;
-				animation-delay: 3.1s;
-			}
-		}
 	}
 }

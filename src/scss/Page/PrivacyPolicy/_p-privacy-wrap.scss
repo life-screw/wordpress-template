@@ -1,0 +1,31 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+/*
+ * # 	プライバシーポリシー header
+ */
+.p-privacy-wrap {
+	margin-top: -8vw;
+	margin-bottom: s.vw(s.$spDesign, 65);
+	max-width: 980px;
+	text-align: left;
+
+	// フォントサイズ, 行送り , 太さ, トラッキング
+	@include s.f_sp_around(14, 30, 400, false);
+
+	@include s.media(md) {
+		margin-top: 17rem;
+		margin-bottom: 9.5rem;
+
+		// フォントサイズ, 行送り , 太さ, トラッキング
+		@include s.f_pc_around(16, 37, false, false);
+	}
+
+	&__text {
+		margin-bottom: 2rem;
+
+		@include s.media(md) {
+			margin-bottom: 3.5rem;
+		}
+	}
+}

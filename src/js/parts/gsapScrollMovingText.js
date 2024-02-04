@@ -129,7 +129,7 @@ export function gsapScrollMovingText() {
 
     // .js-appeal-wrap関連の変数定義
     const appealWrap = document.querySelector(".js-appeal-wrap");
-    const appealInner = document.querySelector(".js-appeal-inner");
+    const appealInner = document.querySelector(".js-appeac-inner");
     const appeals = document.querySelectorAll(".js-appeal");
 
     // .js-appeal-wrapをピン留め--------
@@ -142,8 +142,8 @@ export function gsapScrollMovingText() {
       anticipatePin: 1, //高速スクロール時画面ずれ防止。ピン留めの動作が発生する前に少し前もって対応するアニメーションを開始するために使用
     });
 
-    //.js-appeal-innerのアニメーション----
-    // .js-appeal-wrapがビューポートの50%に入ったら、.js-appeal-innerのclip-pathを変更
+    //.js-appeac-innerのアニメーション----
+    // .js-appeal-wrapがビューポートの50%に入ったら、.js-appeac-innerのclip-pathを変更
     if (appealInner) {
       gsap.fromTo(
         appealInner,
@@ -249,7 +249,7 @@ export function gsapScrollMovingText() {
       });
     }
 
-    // .js-appeal-innerのアニメーションが終わったらアニメーションを開始
+    // .js-appeac-innerのアニメーションが終わったらアニメーションを開始
     startAppealAnimation();
 
     // service部分のスクロールアニメーション--------------------------

@@ -529,7 +529,7 @@
   margin-bottom: 3.5em;
 }
 @media print, screen and (min-width: 769px) {
-  .p-home-news__listarea {
+  .p-home-news__list-area {
     /*PCのみ*/
     display: -webkit-box;
     display: -ms-flexbox;

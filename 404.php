@@ -16,7 +16,7 @@
 ?>
 <?php get_header(); ?>
 
-<div class="l-page-wrap l-inner">
+<div class="l-page-wrap c-inner">
 	<div class="c-sec-title js-fadein">
 		<h1 class="c-sec-title__title u-upper js-fadein__inner">Not found</h1>
 	</div>

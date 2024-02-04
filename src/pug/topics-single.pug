@@ -1,0 +1,48 @@
+//- ページのID名
+- const pageID = "topics"
+
+include ./Common/_header.pug
+
+article.p-topics.l-page-wrap.c-inner
+
+	.p-topics-single
+		.p-topics-single__head-area
+			time.p-topics-single__time 2023.01.05
+			.p-topics-single__category-box
+				p.p-topics-single__category
+					a.u-upper(href=" ") #Information
+				p.p-topics-single__category
+					a.u-upper(href=" ") #TOPICS
+			h1.p-topics-single__title この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+		.p-topics-single__contents
+			<figure class="wp-block-image size-large"><img src="https://fakeimg.pl/868x488/" decoding="async"></figure>
+
+			p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+
+			p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+
+			p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+
+			p この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。<br>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+
+
+	.p-topics-pager
+		.p-topics-pager__btn.p-topics-pager__btn--back
+			a(href=" ")
+				span.p-topics-pager__link-wrap
+					span.p-topics-pager__link-inner
+						span.p-topics-pager__link-text Back
+
+		<p class="p-topics-pager__back">
+			<a class="u-upper" href="/topics">
+			<span class="wrap"><span class="inner"><span class="text">TOPICS top</span></span></span>
+			</a>
+		</p>
+
+		.p-topics-pager__btn.p-topics-pager__btn--next
+			a(href=" ")
+				span.p-topics-pager__link-wrap
+					span.p-topics-pager__link-inner
+						span.p-topics-pager__link-text Next
+
+include ./Common/_footer.pug

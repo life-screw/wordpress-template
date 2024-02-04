@@ -1,0 +1,44 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+/*
+ * # 	プライバシーポリシー　本文
+ */
+.p-privacy {
+	margin-bottom: 3.5rem;
+	//   &:last-child {
+	//     border-bottom: none;
+	//   }
+
+	&__title {
+		margin-bottom: 0.2em;
+
+		@include s.media(md) {
+			margin-bottom: 0.4em;
+		}
+	}
+
+	&__text+&__text {
+		margin-top: 2em;
+	}
+
+	&__list {
+		@include s.media(mdmax) {
+			//スマホの時のみ
+			margin-top: 1em;
+			line-height: 1.5;
+		}
+
+		li {
+			padding-left: 2em;
+			text-indent: -2em;
+
+			&+li {
+				@include s.media(mdmax) {
+					//スマホの時のみ
+					margin-top: 0.55em;
+				}
+			}
+		}
+	}
+}

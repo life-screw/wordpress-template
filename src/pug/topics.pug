@@ -1,14 +1,11 @@
 //- ページのID名
 - const pageID = "topics"
 
-include _header.pug
+include ./Common/_header.pug
 
-.p-news.l-page-wrap.l-inner
-	.l-page-listwrap
-		.c-sec-title.p-home-philosophy__title.js-fadein
-			h1.c-sec-title__title.u-upper topics
+.p-news.l-page-wrap.c-inner
 
-	.p-news__listarea
+	.p-news__list-area
 		article.p-news-list
 			a(href=" ")
 				time.p-news-list__time 2023.01.06
@@ -22,4 +19,4 @@ include _header.pug
 				time.p-news-list__time 2023.01.06
 				h2.p-news-list__title この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
 
-include _footer.pug
+include ./Common/_footer.pug

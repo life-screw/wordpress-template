@@ -16,7 +16,7 @@
 ?>
 <?php get_header(); ?>
 
-<div class="p-topics l-page-wrap l-inner">
+<div class="p-topics l-page-wrap c-inner">
 	<div class="l-page-listwrap">
 		<div class="c-sec-title p-home-philosophy__title js-fadein">
 			<h1 class="c-sec-title__title u-upper js-fadein__inner"><a href="<?php echo esc_url( home_url( '/' ) ); ?>news">Diary</a></h1>
@@ -50,7 +50,7 @@
 			</ul>
 		</nav>
 		</div>
-		<div class="p-topics__listarea">
+		<div class="p-topics__list-area">
 
 <?php
 if ( have_posts() ) :

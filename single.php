@@ -20,36 +20,33 @@ if ( have_posts() ) :
 	while ( have_posts() ) :
 		the_post();
 		?>
+
+
 		<?php
+		// [ループ内]カテゴリー名とリンクの取得.
 		$categories    = get_the_category();
 		$category_name = $categories[0]->name;
 		$category_link = get_category_link( $categories[0]->term_id );
 		?>
 
-<article class="p-works l-page-wrap l-inner">
-	<div class="c-sec-title p-home-philosophy__title js-fadein">
-		<p class="c-sec-title__title u-upper js-fadein__inner"><a href="<?php echo esc_url( home_url( '/' ) ); ?>news">Diary</a></p>
-	</div>
+		<?php
+		// [ループ内]カテゴリー名とリンクの出力.
+		foreach ( $categories as $category ) {
+			echo '<p class="p-topics-single__category"><a class="u-upper" href="' . esc_url( get_category_link( $category->term_id ) ) . '">#' . esc_html( $category->name ) . '</a></p>';
+		}
+		?>
 
-	<div class="p-topics-single">
-		<div class="p-topics-single__headarea">
-				<time datetime="<?php echo esc_attr( get_the_date( 'Y-m-d' ) ); ?>" class="p-topics-single__time"><?php echo esc_attr( get_the_date( 'Y.m.d' ) ); ?></time>
-					<div class="p-topics-single__categorybox">
-						<?php
-						foreach ( $categories as $category ) {
-							echo '<p class="p-topics-single__category"><a class="u-upper" href="' . esc_url( get_category_link( $category->term_id ) ) . '">#' . esc_html( $category->name ) . '</a></p>';
-						}
-						?>
-					</div>
-				<h1 class="p-topics-single__title">
-					<?php the_title(); ?>
-				</h1>
-		</div>
-		<div class="p-topics-single__contents">
-				<?php the_content(); ?>
-		</div>
-	</div>
 
+		<!--timeタグのPHP-->
+		<time datetime="<?php echo esc_attr( get_the_date( 'Y-m-d' ) ); ?>" class="p-topics-single__time"><?php echo esc_attr( get_the_date( 'Y.m.d' ) ); ?></time>
+
+
+		<!--よく使うPHP-->
+		<?php the_title(); ?>
+		<?php the_content(); ?>
+
+
+	<!--ページャーの設置例-->
 	<div class="p-works-pager">
 			<?php
 			$prev_post = get_previous_post();
@@ -92,9 +89,7 @@ if ( have_posts() ) :
 		<?php } ?>
 		</div>
 	</div>
-</div>
 
-</article>
 
 	<?php endwhile; ?>
 <?php endif; ?>

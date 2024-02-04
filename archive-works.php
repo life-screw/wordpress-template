@@ -16,35 +16,33 @@
 ?>
 <?php get_header(); ?>
 
-<article class="p-works l-page-wrap l-inner">
-	<div class="l-page-listwrap">
-		<div class="c-sec-title p-home-philosophy__title js-fadein">
-			<h1 class="c-sec-title__title u-upper js-fadein__inner"><a href="<?php echo esc_url( home_url( '/' ) ); ?>works">WORKS</a></h1>
-		</div>
-		<nav class="c-cat-pagelink js-fadein">
-			<ul class="js-fadein__inner">
-				<li><a class="is-show u-upper" href="<?php echo esc_url( home_url( '/' ) ); ?>works">All</a></li>
-				<?php
-					// タクソノミーの一覧を表示.
-					$categories = array(
-						'post_type'  => 'works', // カスタム投稿タイプ名.
-						'taxonomy'   => 'works-category', // 取得したいタクソノミー名.
-						'orderby'    => 'id', // idの順番.
-						'hide_empty' => '0',
-					);
-					$categories = get_categories( $categories );// 上で指定した配列を条件にターム一覧を取得.
-					if ( $categories ) :
-						foreach ( $categories as $category ) :
-							?>
-					<li><a class="u-upper" href="<?php echo esc_url( home_url( '/' ) ); ?>works-category/<?php echo esc_html( $category->slug ); ?>"><?php echo esc_html( $category->name ); ?></a></li>
-							<?php
-					endforeach;
-						wp_reset_postdata();
-				endif;
-					?>
-			</ul>
-		</nav>
-	</div>
+	<!--タクソノミーのメニュー一覧の取得・出力-->
+	<nav class="c-cat-pagelink js-fadein">
+		<ul class="js-fadein__inner">
+			<li><a class="is-show u-upper" href="<?php echo esc_url( home_url( '/' ) ); ?>works">All</a></li>
+			<?php
+				// タクソノミーの一覧を表示.
+				$categories = array(
+					'post_type'  => 'works', // カスタム投稿タイプ名.
+					'taxonomy'   => 'works-category', // 取得したいタクソノミー名.
+					'orderby'    => 'id', // idの順番.
+					'hide_empty' => '0',
+				);
+				$categories = get_categories( $categories );// 上で指定した配列を条件にターム一覧を取得.
+				if ( $categories ) :
+					foreach ( $categories as $category ) :
+						?>
+				<li><a class="u-upper" href="<?php echo esc_url( home_url( '/' ) ); ?>works-category/<?php echo esc_html( $category->slug ); ?>"><?php echo esc_html( $category->name ); ?></a></li>
+						<?php
+				endforeach;
+					wp_reset_postdata();
+			endif;
+				?>
+		</ul>
+	</nav>
+
+
+	<!--記事一覧の取得・出力-->
 	<div class="p-works__list">
 		<?php
 		// WP_Queryでページャーを出す https://into-the-program.com/wpquery-pagination/ .
@@ -66,12 +64,18 @@
 			while ( $query->have_posts() ) :
 				$query->the_post();
 				?>
-
-				<figure class="js-fadein">
-					<a class="c-figure-hover js-fadein__inner" href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail( 'thumbnail' ); ?>
-					</a>
-				</figure>
+				
+				<article class="p-news-list">
+					<figure>
+						<a class="c-figure-hover js-fadein__inner" href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail( 'thumbnail' ); ?>
+						</a>
+					</figure>
+					<time datetime="<?php echo esc_attr( get_the_date( 'Y-m-d' ) ); ?>" class="p-news-list__time"><?php echo esc_attr( get_the_date( 'Y.m.d' ) ); ?></time>
+					<h2 class="p-news-list__title">
+						<?php the_title(); ?>
+					</h2>
+				</article>
 
 			<?php endwhile; ?>
 
@@ -81,8 +85,7 @@
 		endif;
 		wp_reset_postdata();
 		?>
-
 	</div>
-</article>
+
 
 <?php get_footer(); ?>

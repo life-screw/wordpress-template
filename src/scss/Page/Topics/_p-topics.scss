@@ -1,0 +1,15 @@
+@use "sass:math";
+@use "../../Setting/" as s;
+
+.p-topics {
+	&__list-area {
+		margin: 4em auto 8em;
+		border-top: 0.7px solid var(--color-base);
+		max-width: 868px;
+
+		@include s.media(md) {
+			/*PCのみ*/
+			margin: 13vmin auto 11vmin;
+		}
+	}
+}

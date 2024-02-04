@@ -13,8 +13,3 @@ export function smoothScrollToTop() {
     });
   });
 }
-
-// ドキュメントが読み込まれた後に機能を有効化
-document.addEventListener("DOMContentLoaded", (event) => {
-  smoothScrollToTop();
-});
