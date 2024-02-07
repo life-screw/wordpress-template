@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 # WordPress 自作テーマのテンプレート
-=======
-# WordPress 自作テーマのテンプレート（修正版）
->>>>>>> 28850b6 (20240207_README.mdを更新)
 
 ## コンパイルアプリ
 - prepros7を使用
@@ -121,4 +115,3 @@ scss > Setting > _mixin に記載
 - src/js/partsにモジュール化（機能ごとにファイルを分けた）JavaScriptファイルを入れています。これをcommon.js、home.jsなどのそれぞれのファイルにexportで読み込んでコンパイルしています。
 - jQueryは必要なページにのみfunctions.phpで読み込むページを設定します。
 - headタグ内にJavaScriptを読み込んでください。読み込みを遅らせたいときは「defer」を設定してください。
->>>>>>> ffe0bbe (テンプレートを汎用化)
