@@ -1,13 +1,10 @@
 @use "sass:math";
 
-/*-------------
-スマホ
--------------*/
 //スマホデザイン横幅
 $spDesign: 375; //375px
 
 // functionを定義するscssファイル
-// remの値を出す 16で割って px指定と同じサイズにする
+// remの値を出す 10で割って px指定と同じサイズにする
 @function rem($value) {
 	@return #{math.div($value, 10)}rem;
 }
@@ -16,7 +13,6 @@ $spDesign: 375; //375px
 $pcContainer: 1000; //1000px
 
 // vw vh の値を出す（指定したい最大幅,物のサイズ）
-// モバイルで使う
 @function vw($width, $px) {
 	@return math.div($px, $width) * 100vw;
 }
