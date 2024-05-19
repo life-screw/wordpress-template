@@ -10,39 +10,31 @@
 
 @mixin inner {
 	// max-width: 1000px;
-	width: calc(100% - 16.2vw);
+	width: calc(100% - vw($spDesign, $spDesign - 312));
 	margin: auto;
 	max-width: 1282px;
 }
 
 @mixin innerWide {
 	// max-width: 1000px;
-	width: calc(100% - 16.2vw);
+	width: calc(100% - vw($spDesign, $spDesign - 312));
 	margin: auto;
 	max-width: 1700px;
 }
 
 @mixin innerPage {
 	// max-width: 1000px;
-	width: calc(100% - 16.2vw);
+	width: calc(100% - vw($spDesign, $spDesign - 312));
 	margin: auto;
 	max-width: 1104px;
 }
 
-@mixin innerPageSmall {
-	// max-width: 1000px;
-	width: calc(100% - vw($spDesign, 18)*2);
-	margin: auto;
-	max-width: 1104px;
-}
 
-@mixin flexCenter {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-//フォント一括設定_sp（数値はXDの値を入れる）----------------
+//フォント一括設定_sp（数値はXDの値を入れる）====================
+//スマホとタブレットの時、主にタイトルに使用する
+//フォントサイズをvwで指定する
+// 呼び出し例 -----------
+// ＠include f_sp_around(フォントサイズ, 行送り , 太さ, トラッキング)
 @mixin f_sp_around($pixels, $height: false, $weight: false, $spacing: false) {
 	font-size: math.div($pixels, $spDesign) * 100vw;
 
@@ -59,10 +51,32 @@
 	}
 }
 
-// 呼び出し例
-// ＠include f_sp_around(フォントサイズ, 行送り , 太さ, トラッキング)
+//フォント一括設定_sp（数値はXDの値を入れる）=====================
+//スマホとタブレットの時、主に見出しや本文に使用する
+//フォントサイズをmin(◯◯vw,◯◯px)で指定することで、文字が大きくなりすぎないようにする
+// 呼び出し例 -----------
+// ＠include f_sp-min_around(フォントサイズ, 行送り , 太さ, トラッキング)
+@mixin f_sp-min_around($pixels, $height: false, $weight: false, $spacing: false) {
+	font-size: min(math.div($pixels, $spDesign) * 100vw, ($pixels * 1.2) * 0.1rem);
 
-//フォント一括設定_PC（数値はXDの値を入れる）----------------
+	@if $weight {
+		font-weight: $weight;
+	}
+
+	@if $height {
+		line-height: $height / $pixels;
+	}
+
+	@if $spacing {
+		letter-spacing: ($spacing / 1000) * 1em;
+	}
+}
+
+//フォント一括設定_PC（数値はXDの値を入れる）=================
+//PCの時の文字サイズ指定に使用。
+//フォントサイズをremで指定する
+// 呼び出し例-----------------------
+// ＠include f_pc_around(フォントサイズ, 行送り , 太さ, トラッキング)
 @mixin f_pc_around($pixels, $height: false, $weight: false, $spacing: false) {
 	font-size: $pixels * 0.1rem;
 
@@ -78,6 +92,3 @@
 		letter-spacing: ($spacing / 1000) * 1em;
 	}
 }
-
-// 呼び出し例
-// ＠include f_pc_around(フォントサイズ, 行送り , 太さ, トラッキング)

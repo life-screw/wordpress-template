@@ -1,152 +1,153 @@
 @use "sass:math";
-@use "../../Setting/" as s;
+@use "../../Setting/"as s;
 
 /*ハンバーガーメニュー ボタン*/
 .l-humnav {
-  $this: &;
-  display: none;
+	$this: &;
+	display: none;
 
-  align-items: center;
-  padding-top: 72px;
+	align-items: center;
+	padding-top: 72px;
 
-  z-index: 999;
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  right: 0;
-  overflow-x: hidden;
-  overflow-y: auto; //これ入れないとスクロールしない
+	z-index: 999;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	right: 0;
+	overflow-x: hidden;
+	overflow-y: auto; //これ入れないとスクロールしない
 
-  text-align: right;
+	text-align: right;
 
-  //opacity: 0;
-  //transition: opacity .3s ease .2s;
+	//opacity: 0;
+	//transition: opacity .3s ease .2s;
 
-  @include s.media(md) {
-    /*PCのみ*/
-    padding-top: calc(68px + 5vh);
-    //min-height: 790px;
-  }
+	@include s.media(md) {
+		/*PCのみ*/
+		padding-top: calc(68px + 5vh);
+		//min-height: 790px;
+	}
 
-  //   &__wrap {
-  //     height: 100%;
-  //     display: flex;
-  //     align-items: center;
-  //   }
-  &__inner {
-    width: 100%;
-    //padding: 0 27px 30px;
-    padding: 0 27px 120px;
-    opacity: 0;
+	//   &__wrap {
+	//     height: 100%;
+	//     display: flex;
+	//     align-items: center;
+	//   }
+	&__inner {
+		width: 100%;
+		//padding: 0 27px 30px;
+		padding: 0 27px 120px;
+		opacity: 0;
 
-    @include s.media(md) {
-      /*PCのみ*/
-      padding-right: 82px;
-      margin-bottom: 50px;
-    }
-  }
+		@include s.media(md) {
+			/*PCのみ*/
+			padding-right: 82px;
+			margin-bottom: 50px;
+		}
+	}
 
-  //クリックした時
-  &.is-active {
-    //display: flex;
-    display: block; //display: flex ではoverflow-yが効かない
+	//クリックした時
+	&.is-active {
+		//display: flex;
+		display: block; //display: flex ではoverflow-yが効かない
 
-    //opacity: 1;
-    #{$this}__inner {
-      animation-delay: 0.2s;
-      animation-name: fadeIn;
-      animation-duration: 0.3s;
-      animation-iteration-count: 1; //実行回数
-      animation-fill-mode: forwards; //アニメーション再生後は最後のキーフレーム（100%）を適応
-    }
-  }
+		//opacity: 1;
+		#{$this}__inner {
+			animation-delay: 0.2s;
+			animation-name: fadeIn;
+			animation-duration: 0.3s;
+			animation-iteration-count: 1; //実行回数
+			animation-fill-mode: forwards; //アニメーション再生後は最後のキーフレーム（100%）を適応
+		}
+	}
 }
 
 //ハンバーガメニューフォント
 %humMenuA {
-  @extend %en-font;
-  //display: block;
-  display: inline-block;
-  //font-size: s.vw(s.$spDesign, 18);
-  font-size: 1.8rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  //line-height: 2.69;
-  padding: 0.8em 0;
-  color: #fff;
+	@extend %en-font;
+	//display: block;
+	display: inline-block;
+	//font-size: s.vw(s.$spDesign, 18);
+	font-size: 1.8rem;
+	font-weight: 500;
+	letter-spacing: 0.05em;
+	//line-height: 2.69;
+	padding: 0.8em 0;
+	color: #fff;
 
-  // @media only screen and (max-width: 370px) {
-  //   /*スマホで小さい画面の時*/
-  //   //line-height: 3.2;
-  //   padding: 1em 0;
-  // }
+	// @media only screen and (max-width: 370px) {
+	//   /*スマホで小さい画面の時*/
+	//   //line-height: 3.2;
+	//   padding: 1em 0;
+	// }
 
-  @include s.media(md) {
-    /*PCのみ*/
-    font-size: 2.1rem;
-  }
+	@include s.media(md) {
+		/*PCのみ*/
+		font-size: 2.1rem;
+	}
 }
 
 //ハンバーガーメニュー
 .l-humnav-main {
-  //margin-top: calc(62px + 6vh);
+	//margin-top: calc(62px + 6vh);
 
-  &__list {
-    text-align: right;
+	&__list {
+		text-align: right;
 
-    & > a {
-      @extend %humMenuA;
+		&>a {
+			@extend %humMenuA;
+			min-height: 42px;
 
-      .wrap {
-        display: block;
-        overflow: hidden;
-      }
+			.wrap {
+				display: block;
+				overflow: hidden;
+			}
 
-      .inner {
-        display: block;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        position: relative;
-      }
+			.inner {
+				display: block;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				position: relative;
+			}
 
-      .text {
-        transform: translateY(0);
-        line-height: 1;
-      }
+			.text {
+				transform: translateY(0);
+				line-height: 1;
+			}
 
-      &:hover {
-        opacity: 1;
+			&:hover {
+				opacity: 1;
 
-        .inner {
-          animation: viewMoreText 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-          animation-delay: 0.2s;
-        }
-      }
-    }
-  }
+				.inner {
+					animation: viewMoreText 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+					animation-delay: 0.2s;
+				}
+			}
+		}
+	}
 }
 
 //contact
 .l-humnav-contact {
-  text-align: right;
-  margin: 5em 0 2em;
+	text-align: right;
+	margin: 5em 0 2em;
 
-  a {
-    padding: 0.2em 0.8em;
-    border: solid 1px #fff;
-    @extend %en-font;
-    display: inline-block;
-    //font-size: s.vw(s.$spDesign, 18);
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: #fff;
-    letter-spacing: 0.05em;
+	a {
+		padding: 0.2em 0.8em;
+		border: solid 1px #fff;
+		@extend %en-font;
+		display: inline-block;
+		//font-size: s.vw(s.$spDesign, 18);
+		font-size: 1.8rem;
+		font-weight: 500;
+		color: #fff;
+		letter-spacing: 0.05em;
 
-    @include s.media(md) {
-      /*PCのみ*/
-      font-size: 2rem;
-    }
-  }
+		@include s.media(md) {
+			/*PCのみ*/
+			font-size: 2rem;
+		}
+	}
 }

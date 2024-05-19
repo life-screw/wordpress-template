@@ -26,8 +26,10 @@ export function scrollFadeIn() {
       let scrollTop = window.pageYOffset;
       // スクロール時にフェードインする
       elements.forEach(function (element) {
+        // 要素の位置（ブラウザの表示領域の左上を(0,0)として、そこからの相対位置を取得）
         let fadeTop = Math.floor(element.getBoundingClientRect().top);
-        let elementBottom = fadeTop + scrollTop; // 要素のtop位置 + スクロール位置
+        // 要素の位置 + スクロール位置
+        let elementBottom = fadeTop + scrollTop;
 
         // スクロール位置から、ビューポートの高さ95%の位置に要素が入ったらクラスを付与（500ms遅延）
         if (scrollTop + window.innerHeight / 1.05 > elementBottom) {

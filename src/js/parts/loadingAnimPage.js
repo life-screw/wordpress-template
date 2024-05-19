@@ -12,7 +12,7 @@ export function loadingAnimPage() {
           el.style.height = "0";
           el.style.opacity = "0";
         });
-      }, 30);
+      }, 50); //遅延させる時間
     }
   });
 }

@@ -7,7 +7,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script> */
 
 //ピン留めのアニメーション設定のコツ
-//1.一つのピン留めに対して、複数のアニメーションを設定する場合は、startのタイミングを同じにするとがたつきにくくなる。
+//1.pinどめする要素の外に親要素をつけて、他に干渉しないようにする。
+//2.一つのピン留めに対して、複数のアニメーションを設定する場合は、startのタイミングを同じにするとがたつきにくくなる。
 
 export function gsapScrollMovingText() {
   //ScrollTriggerと連携
@@ -129,7 +130,7 @@ export function gsapScrollMovingText() {
 
     // .js-appeal-wrap関連の変数定義
     const appealWrap = document.querySelector(".js-appeal-wrap");
-    const appealInner = document.querySelector(".js-appeac-inner");
+    const appealInner = document.querySelector(".js-appeal-inner");
     const appeals = document.querySelectorAll(".js-appeal");
 
     // .js-appeal-wrapをピン留め--------
@@ -142,8 +143,8 @@ export function gsapScrollMovingText() {
       anticipatePin: 1, //高速スクロール時画面ずれ防止。ピン留めの動作が発生する前に少し前もって対応するアニメーションを開始するために使用
     });
 
-    //.js-appeac-innerのアニメーション----
-    // .js-appeal-wrapがビューポートの50%に入ったら、.js-appeac-innerのclip-pathを変更
+    //.js-appeal-innerのアニメーション----
+    // .js-appeal-wrapがビューポートの50%に入ったら、.js-appeal-innerのclip-pathを変更
     if (appealInner) {
       gsap.fromTo(
         appealInner,
@@ -208,8 +209,8 @@ export function gsapScrollMovingText() {
               onStart: () => setActiveAppealNavItem(index + 1), //アニメーション開始したら、アクティブなナビゲーション項目を設定
               onReverseComplete: () => setActiveAppealNavItem(index), //アニメーションが逆再生完了したら前のナビゲーション項目をアクティブにする
             },
-            index * 1.5
-          ); // 各要素のアニメーションを1.5秒ごとにずらす
+            index * 1 // clipPathアニメーションの遅延時間に揃える
+          ); 
         }
 
         // .js-appeal__imgのscaleアニメーション
@@ -221,8 +222,8 @@ export function gsapScrollMovingText() {
             duration: 1,
             ease: "none",
           },
-          index * 1.5
-        ); // clipPathアニメーションと同じタイミングにする
+          index * 1 // clipPathアニメーションと同じタイミングにする
+        );
 
         // .js-appeal__textareaのアニメーション
         const textarea = appeal.querySelector(".js-appeal__textarea");
@@ -233,7 +234,7 @@ export function gsapScrollMovingText() {
             duration: 0.2,
             ease: "none",
           },
-          index * 1.5 // clipPathアニメーションと同じタイミングにする
+          index * 1 // clipPathアニメーションと同じタイミングにする
         );
       });
     }
@@ -249,7 +250,7 @@ export function gsapScrollMovingText() {
       });
     }
 
-    // .js-appeac-innerのアニメーションが終わったらアニメーションを開始
+    // .js-appeal-innerのアニメーションが終わったらアニメーションを開始
     startAppealAnimation();
 
     // service部分のスクロールアニメーション--------------------------
@@ -313,34 +314,6 @@ export function gsapScrollMovingText() {
         }
       });
     }
-
-    //.js-grand-menuのピン留めアニメーション---------
-    ScrollTrigger.create({
-      trigger: ".js-grand-menu",
-      start: "top top", // 最初のセクションが上部に来たときに開始
-      end: "bottom bottom", // 最後のセクションが下部に来たときに終了
-      pin: ".js-grand-menu", // ピン留めする要素
-      pinSpacing: "30svh", // ピン留めされた要素の間隔を無くす
-      anticipatePin: 1, //高速スクロール時画面ずれ防止。ピン留めの動作が発生する前に少し前もって対応するアニメーションを開始するために使用
-    });
-
-    //.js-pin-area--02のピン留めアニメーション---------
-    ScrollTrigger.create({
-      trigger: ".js-pin-area--02",
-      start: "top top", // 最初のセクションが上部に来たときに開始
-      end: "bottom bottom", // 最後のセクションが下部に来たときに終了
-      //   pin: ".js-pin-area--02", // ピン留めする要素
-      //   pinSpacing: false, // ピン留めされた要素の間隔を無くす
-    });
-
-    //.js-footerのピン留めアニメーション---------
-    ScrollTrigger.create({
-      trigger: ".js-footer",
-      start: "top top", // 最初のセクションが上部に来たときに開始
-      end: "bottom bottom", // 最後のセクションが下部に来たときに終了
-      //   pin: ".js-footer", // ピン留めする要素
-      //   pinSpacing: false, // ピン留めされた要素の間隔を無くす
-    });
   }
   //ページ上のすべてのリソースが読み込まれてから実行
   window.addEventListener("load", initScrollAnimation);

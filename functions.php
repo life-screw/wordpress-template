@@ -291,52 +291,6 @@ function my_disable_redirect_canonical( $redirect_url ) {
 }
 add_filter( 'redirect_canonical', 'my_disable_redirect_canonical' );
 
-/**
- * MW WP FORM　複数要素のエラーをまとめて表示する
- * https://b-risk.jp/blog/2022/03/mwwpform-customize/
- * ※ここで設定する項目には、バリデーションルールの「必須項目」にはチェックをつけない
- *
- * @param string $validation first parameter.
- * @param string $data second parameter.
- * @return $validation
- */
-function add_mwform_validation_rule( $validation, $data ) {
-	$validation_message01 = '姓もしくは名が未入力です。';
-	if ( empty( $data['姓'] ) ) {
-		$validation->set_rule( '姓', 'noempty', array( 'message' => $validation_message01 ) );
-	} elseif ( empty( $data['名'] ) ) {
-		$validation->set_rule( '名', 'noempty', array( 'message' => $validation_message01 ) );
-	}
-	$validation_message02 = 'セイもしくはメイが未入力です。';
-	if ( empty( $data['セイ'] ) ) {
-		$validation->set_rule( 'セイ', 'noempty', array( 'message' => $validation_message02 ) );
-	} elseif ( empty( $data['メイ'] ) ) {
-		$validation->set_rule( 'メイ', 'noempty', array( 'message' => $validation_message02 ) );
-	}
-	return $validation;
-}
-add_filter( 'mwform_validation_mw-wp-form-377', 'add_mwform_validation_rule', 10, 2 ); // 377はformのkey番号.
-
-/**
- * -----------------------------------------------------
- * MW WP Fromのビジュアルエディターを無効化する
- * 固定ページはビジュアルエディタを使いたかったので、コード変更
- * https://knowledge-base.site/web_creative/web_creative-940/#:~:text=MW%20WP%20Forms%E3%81%A7%E3%83%93%E3%82%B8%E3%83%A5%E3%82%A2%E3%83%AB,php%E3%82%92%E7%B7%A8%E9%9B%86%20%E3%81%97%E3%81%BE%E3%81%99%E3%80%82&text=%E3%81%93%E3%82%8C%E3%81%A7%E3%80%81MW%20WP%20Forms,%E3%81%AF%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%AA%E3%81%8F%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82
- * ----------------------------------------------------- */
-function visual_editor_off() {
-	global $typenow;
-	if ( in_array( $typenow, array( 'mw-wp-form' ) ) ) {
-		add_filter( 'user_can_richedit', 'off_visual_editor' );
-	}
-}
-/**
- * MW WP Fromのビジュアルエディタを無効化する
- */
-function off_visual_editor() {
-	return false;
-}
-add_action( 'load-post.php', 'visual_editor_off' );
-add_action( 'load-post-new.php', 'visual_editor_off' );
 
 /**
  * 投稿/固定ページのURLが日本語の場合、記事IDで自動生成する

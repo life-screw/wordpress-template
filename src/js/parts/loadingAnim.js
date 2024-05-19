@@ -21,7 +21,7 @@ export function loadingAnim() {
           el.style.height = "0";
           el.style.opacity = "0";
         });
-      }, 4000);
+      }, 4000); //遅延させる時間
     }
   });
 }

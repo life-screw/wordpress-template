@@ -31,12 +31,14 @@ $pcContainer: 1000; //1000px
 }
 
 // letter-spacing トラッキング
-@function ls($letter-spacing) {
-	@return #{math.div($letter-spacing, 1000)}em;
+// @function ls($letter-spacing) {
+// 	@return #{math.div($letter-spacing, 1000)}em;
+// }
+@function ls($px, $size) {
+	@return math.div($px, $size) * 1em; //字間px,文字サイズpx
 }
 
-$breakpoints: (
-	// s: 'only screen and (min-width:480px)',
+$breakpoints: ( // s: 'only screen and (min-width:480px)',
 	// sm: 'only screen and (max-width:768px)',
 	//md: 'only screen and (max-width:768px)',
 	lg: "print, screen and (min-width:1100px)",

@@ -1,0 +1,112 @@
+@use "sass:math";
+@use "../../Setting/"as s;
+
+
+.l-modal-load {
+	position: fixed;
+	// background: rgba(0, 0, 0, .7);
+	z-index: 98;
+	bottom: 0;
+	inset: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all .2s ease;
+
+	&.is-close {
+		visibility: hidden;
+		z-index: -1;
+		opacity: 0;
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: calc(100vh + 1px);
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	&__wrap {
+		position: relative;
+
+		@include s.media(mdmax) {
+			//スマホの時のみ
+			max-width: 350px;
+			width: 86.966667vw;
+		}
+
+		@include s.media(md) {
+			//タブレット・pcの時
+			width: s.p(1366, 800);
+			max-width: 800px;
+		}
+	}
+
+	&__close {
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		top: 0;
+		right: 0;
+		background: #fff;
+		transition: all .2s ease;
+		cursor: pointer;
+
+		@include s.media(md) {
+			//タブレット・pcの時
+			// top: s.rem(16);
+			// right: s.rem(17);
+			width: 50px;
+			height: 50px;
+		}
+
+		span {
+			height: 1px;
+			width: 20px;
+			content: '';
+			position: absolute;
+			top: 10px+5px;
+			left: 5px;
+			transition: all .2s ease;
+
+			// background: #fff;
+			background: #C2000A;
+			transform-origin: center;
+
+			@include s.media(md) {
+				//タブレット・pcの時
+				height: 2px;
+				top: 25px;
+				left: 15px;
+			}
+
+			&:first-of-type {
+				transform: rotate(45deg);
+			}
+
+			&:last-of-type {
+				transform: rotate(-45deg);
+			}
+		}
+
+		// &:hover {
+		// 	@include s.media(md) {
+		// 		//タブレット・pcの時
+		// 		background: #C2000A;
+
+		// 		span {
+		// 			background: #fff;
+		// 		}
+		// 	}
+		// }
+	}
+
+	&__contents {
+		a {
+			display: block;
+		}
+	}
+
+}
